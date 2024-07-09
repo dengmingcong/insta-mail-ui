@@ -1,0 +1,23 @@
+<mjml>
+  <mj-head>
+    <mj-attributes>
+    </mj-attributes>
+    <mj-style>
+      .header-border {
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+        border-left: 1px solid rgba(0, 0, 0, 0.1);
+        border-right: 1px solid rgba(0, 0, 0, 0.1);
+      }
+    </mj-style>
+  </mj-head>
+  <mj-body width="720px">
+    <!-- Title -->
+    <mj-section background-color="#EADDFF" border-radius="8px 8px 0 0" css-class="header-border">
+      <mj-column>
+        <mj-text>
+          接口测试报告
+        </mj-text>
+      </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>
