@@ -1,6 +1,7 @@
 <mjml>
   <mj-head>
     <mj-attributes>
+      <mj-class name="primary-color" color="#65558F"></mj-class>
     </mj-attributes>
     <mj-style>
       .header-border {
@@ -12,9 +13,17 @@
   </mj-head>
   <mj-body width="720px">
     <!-- Title -->
-    <mj-section background-color="#EADDFF" border-radius="8px 8px 0 0" css-class="header-border">
+    <mj-section background-color="#EADDFF" border-radius="8px 8px 0 0" css-class="header-border" padding="24px 0">
       <mj-column>
-        <mj-text>
+        <mj-text 
+          align="center"
+          font-family="'Helvetica Neue', Helvetica, Arial, 'Lantinghei SC', 'PingFang SC', 'Microsoft YaHei', sans-serif"
+          font-size="30px"
+          font-weight=500
+          line-height="38px"
+          letter-spacing="0.4em"
+          mj-class="primary-color"
+        >
           接口测试报告
         </mj-text>
       </mj-column>
