@@ -2,6 +2,7 @@
   <mj-head>
     <mj-attributes>
       <mj-class name="primary-color" color="#65558F"></mj-class>
+      <mj-all padding="0" />
     </mj-attributes>
     <mj-style>
       .header-border {
