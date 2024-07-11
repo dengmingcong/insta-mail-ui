@@ -56,6 +56,14 @@
           </mj-text>
         </mj-column>
       </mj-section>
+      <!-- 项目统计 -->
+      <mj-section>
+        <mj-column>
+          <mj-text>
+            <div>项目统计</div>
+          </mj-text>
+        </mj-column>
+      </mj-section>
     </mj-wrapper>
   </mj-body>
 </mjml>
