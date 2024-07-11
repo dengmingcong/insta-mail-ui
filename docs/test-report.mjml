@@ -18,7 +18,7 @@
     </mj-style>
   </mj-head>
   <mj-body width="720px">
-    <!-- Title -->
+    <!-- Header -->
     <mj-section background-color="#EADDFF" border-radius="8px 8px 0 0" css-class="header-border" padding="24px 0">
       <mj-column>
         <mj-text 
@@ -39,7 +39,23 @@
       css-class="content-border"
       border-radius="0 0 8px 8px"
       background-color="rgba(242, 242, 247, 0.3)"
+      padding="0 30px 30px 30px"
     >
+      <!-- General -->
+      <mj-section padding="24px 0">
+        <mj-column>
+          <mj-text
+            font-family="'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif"
+            font-size="14px"
+            line-height="16px"
+          >
+            <p style="margin: 0 0 8px 0;">测试结论: <span style="color: green;">通过</span></p>
+            <p style="margin: 8px 0;">项目名称: 个性化广告和个性化内容开关</p>
+            <p style="margin: 8px 0;">测试人员: Raigor</p>
+            <p style="margin: 8px 0 0 0;">开发人员: Steam</p>
+          </mj-text>
+        </mj-column>
+      </mj-section>
     </mj-wrapper>
   </mj-body>
 </mjml>
