@@ -53,8 +53,8 @@
         </mj-column>
       </mj-section>
       <!-- 项目统计 -->
-      <mj-section>
-        <mj-column mj-class="heading-container">
+      <mj-section mj-class="heading-container">
+        <mj-column >
           <mj-text mj-class="heading-text">项目统计</mj-text>
         </mj-column>
       </mj-section>
