@@ -3,6 +3,9 @@
     <mj-attributes>
       <mj-class name="primary-color" color="#65558F"></mj-class>
       <mj-all padding="0" />
+      <mj-class name="heading-text"
+        font-family="'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif"
+        font-weight="500" font-size="16px" line-height="24px" color="#65558F" />
     </mj-attributes>
     <mj-style>
       .header-border {
@@ -10,6 +13,7 @@
         border-left: 1px solid rgba(0, 0, 0, 0.1);
         border-right: 1px solid rgba(0, 0, 0, 0.1);
       }
+
       .content-border {
         border-bottom: 1px solid rgba(0, 0, 0, 0.1);
         border-left: 1px solid rgba(0, 0, 0, 0.1);
@@ -19,37 +23,28 @@
   </mj-head>
   <mj-body width="720px">
     <!-- Header -->
-    <mj-section background-color="#EADDFF" border-radius="8px 8px 0 0" css-class="header-border" padding="24px 0">
+    <mj-section background-color="#EADDFF" border-radius="8px 8px 0 0"
+      css-class="header-border" padding="24px 0">
       <mj-column>
-        <mj-text 
-          align="center"
+        <mj-text align="center"
           font-family="'Helvetica Neue', Helvetica, Arial, 'Lantinghei SC', 'PingFang SC', 'Microsoft YaHei', sans-serif"
-          font-size="30px"
-          font-weight=500
-          line-height="38px"
-          letter-spacing="0.4em"
-          mj-class="primary-color"
-        >
+          font-size="30px" font-weight=500 line-height="38px"
+          letter-spacing="0.4em" mj-class="primary-color">
           接口测试报告
         </mj-text>
       </mj-column>
     </mj-section>
     <!-- Content -->
-    <mj-wrapper
-      css-class="content-border"
-      border-radius="0 0 8px 8px"
-      background-color="rgba(242, 242, 247, 0.3)"
-      padding="0 30px 30px 30px"
-    >
+    <mj-wrapper css-class="content-border" border-radius="0 0 8px 8px"
+      background-color="rgba(242, 242, 247, 0.3)" padding="0 30px 30px 30px">
       <!-- General -->
       <mj-section padding="24px 0">
         <mj-column>
           <mj-text
             font-family="'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif"
-            font-size="14px"
-            line-height="16px"
-          >
-            <p style="margin: 0 0 8px 0;">测试结论: <span style="color: green;">通过</span></p>
+            font-size="14px" line-height="16px">
+            <p style="margin: 0 0 8px 0;">测试结论: <span
+                style="color: green;">通过</span></p>
             <p style="margin: 8px 0;">项目名称: 个性化广告和个性化内容开关</p>
             <p style="margin: 8px 0;">测试人员: Raigor</p>
             <p style="margin: 8px 0 0 0;">开发人员: Steam</p>
@@ -59,9 +54,7 @@
       <!-- 项目统计 -->
       <mj-section>
         <mj-column>
-          <mj-text>
-            <div>项目统计</div>
-          </mj-text>
+          <mj-text mj-class="heading-text">项目统计</mj-text>
         </mj-column>
       </mj-section>
     </mj-wrapper>
