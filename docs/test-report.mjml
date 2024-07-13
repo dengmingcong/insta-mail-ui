@@ -6,7 +6,11 @@
       <mj-class name="heading-text"
         font-family="'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif"
         font-weight="500" font-size="16px" line-height="24px" color="#65558F" />
-      <mj-class name="heading-container" padding="4px 0" border-bottom="2px solid #EADDFF"/>
+      <mj-class name="heading-container" padding="4px 0"
+        border-bottom="2px solid #EADDFF" />
+      <mj-class name="data-table" table-layout="fixed" width="100%"
+        border-collapse="collapse" border="3px solid purple"
+        font-family="'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif" />
     </mj-attributes>
     <mj-style>
       .header-border {
@@ -19,6 +23,40 @@
         border-bottom: 1px solid rgba(0, 0, 0, 0.1);
         border-left: 1px solid rgba(0, 0, 0, 0.1);
         border-right: 1px solid rgba(0, 0, 0, 0.1);
+      }
+
+      .data-table table {
+        border-collapse: collapse;
+      }
+
+      .data-table thead {
+        color: white;
+        text-shadow: 1px 1px 1px black;
+      }
+
+      .data-table thead th {
+        background: linear-gradient(to bottom, rgb(0 0 0 / 10%), rgb(0 0 0 / 50%));
+        border: 3px solid purple;
+      }
+
+      .data-table th {
+        padding: 8px;
+        letter-spacing: 2px;
+        text-align: left;
+      }
+
+      .data-table td {
+        padding: 8px;
+        letter-spacing: 1px;
+        text-align: left;
+      }
+
+      .data-table tr:nth-child(odd) {
+        background-color: #ff33cc;
+      }
+
+      .data-table tr:nth-child(even) {
+        background-color: #e495e4;
       }
     </mj-style>
   </mj-head>
@@ -54,8 +92,54 @@
       </mj-section>
       <!-- 项目统计 -->
       <mj-section mj-class="heading-container">
-        <mj-column >
+        <mj-column>
           <mj-text mj-class="heading-text">项目统计</mj-text>
+        </mj-column>
+      </mj-section>
+      <mj-section>
+        <mj-column>
+          <mj-table mj-class="data-table" css-class="data-table">
+            <thead>
+              <tr>
+                <th scope="col" width="20%">统计项</th>
+                <th scope="col" width="20%">预期</th>
+                <th scope="col" width="20%">实际</th>
+                <th scope="col" width="40%">偏差原因</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">提测时间</th>
+                <td>2024.6.12</td>
+                <td>2024.6.12</td>
+                <td></td>
+              </tr>
+              <tr>
+                <th scope="row">测试完成时间</th>
+                <td>2024.6.12</td>
+                <td>2024.6.12</td>
+                <td></td>
+              </tr>
+              <tr>
+                <th scope="row">测试工时（天）</th>
+                <td>1</td>
+                <td>2</td>
+                <td>一些说明文字，很长的说明文字，很长很长的说明文字，其他的文字，超过一行的文字，超过一行的文字</td>
+              </tr>
+              <tr>
+                <th scope="row">项目工时（天）</th>
+                <td>3.3</td>
+                <td>3.3</td>
+                <td></td>
+              </tr>
+              <tr>
+                <th scope="row">开发预估工时（天）</th>
+                <td>5</td>
+                <td>5</td>
+                <td></td>
+              </tr>
+            </tbody>
+          </mj-table>
         </mj-column>
       </mj-section>
     </mj-wrapper>
