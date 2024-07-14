@@ -199,6 +199,32 @@
           </mj-table>
         </mj-column>
       </mj-section>
+      <!-- 风险 -->
+      <mj-section mj-class="heading-container not-the-first-heading-container">
+        <mj-column mj-class="heading-column">
+          <mj-text mj-class="heading-text">风险</mj-text>
+        </mj-column>
+      </mj-section>
+      <mj-section>
+        <mj-column>
+          <mj-text>
+            一些风险的说明。
+          </mj-text>
+        </mj-column>
+      </mj-section>
+      <!-- 建议 -->
+      <mj-section mj-class="heading-container not-the-first-heading-container">
+        <mj-column mj-class="heading-column">
+          <mj-text mj-class="heading-text">建议</mj-text>
+        </mj-column>
+      </mj-section>
+      <mj-section>
+        <mj-column>
+          <mj-text>
+            一些建议的说明。
+          </mj-text>
+        </mj-column>
+      </mj-section>
     </mj-wrapper>
   </mj-body>
 </mjml>
