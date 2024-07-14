@@ -7,6 +7,7 @@
         font-family="'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif"
         font-weight="500" font-size="16px" line-height="24px" color="#65558F" />
       <mj-class name="heading-container" padding-bottom="8px"/>
+      <mj-class name="not-the-first-heading-container" padding-top="24px"/>
       <mj-class name="heading-column" padding-bottom="4px"
         border-bottom="2px solid #EADDFF" />
       <mj-class name="data-table" table-layout="fixed" width="100%"
@@ -164,6 +165,34 @@
                 <td>5</td>
                 <td>5</td>
                 <td></td>
+              </tr>
+            </tbody>
+          </mj-table>
+        </mj-column>
+      </mj-section>
+      <!-- 需求变更 -->
+      <mj-section mj-class="heading-container not-the-first-heading-container">
+        <mj-column mj-class="heading-column">
+          <mj-text mj-class="heading-text">需求变更</mj-text>
+        </mj-column>
+      </mj-section>
+      <mj-section>
+        <mj-column>
+          <mj-table mj-class="data-table" css-class="data-table">
+            <thead>
+              <tr>
+                <th scope="col" width="5%">ID</th>
+                <th scope="col" width="95%">变更内容</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>一些文字说明变更内容</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>另外一些文字说明变更内容</td>
               </tr>
             </tbody>
           </mj-table>
