@@ -6,12 +6,11 @@
       <mj-class name="heading-text"
         font-family="'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif"
         font-weight="500" font-size="16px" line-height="24px" color="#65558F" />
-      <mj-class name="heading-container" padding-bottom="8px"/>
-      <mj-class name="not-the-first-heading-container" padding-top="24px"/>
+      <mj-class name="heading-container" padding-bottom="8px" />
+      <mj-class name="not-the-first-heading-container" padding-top="24px" />
       <mj-class name="heading-column" padding-bottom="4px"
         border-bottom="2px solid #EADDFF" />
-      <mj-class name="data-table" table-layout="fixed" width="100%"
-        color="#666" 
+      <mj-class name="data-table" table-layout="fixed" width="100%" color="#666"
         font-family="'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif" />
     </mj-attributes>
     <mj-style>
@@ -55,7 +54,7 @@
       .data-table table tr {
         text-align: left;
       }
-      
+
       .data-table table td:first-child {
         padding-left: 8px;
         text-align: left;
@@ -222,6 +221,55 @@
           <mj-text>
             一些建议的说明。
           </mj-text>
+        </mj-column>
+      </mj-section>
+      <!-- bug 统计 -->
+      <mj-section mj-class="heading-container not-the-first-heading-container">
+        <mj-column mj-class="heading-column">
+          <mj-text mj-class="heading-text">Bug 统计</mj-text>
+        </mj-column>
+      </mj-section>
+      <mj-section>
+        <mj-column>
+          <mj-table mj-class="data-table" css-class="data-table">
+            <thead>
+              <tr>
+                <th scope="col" width="40%">指标</th>
+                <th scope="col" width="10%">数据</th>
+                <th scope="col" width="50%">备注</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>阻塞性 bug</td>
+                <td>0</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>阻塞性 bug 修复时长超过 1 天的数量</td>
+                <td>1</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>二次缺陷数量</td>
+                <td>0</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>总 bug 数量</td>
+                <td>25</td>
+                <td>一些说明文字</td>
+              </tr>
+            </tbody>
+          </mj-table>
+        </mj-column>
+      </mj-section>
+      <mj-section padding-top="8px">
+        <mj-column>
+          <mj-image
+            src="https://quickchart.io/chart?c={type:'line',data:{labels:['2024-07-01','2024-07-02','2024-07-03','2024-07-04','2024-07-05','2024-07-06','2024-07-07'],datasets:[{label:'实际剩余 bug',data:[50,45,40,35,30,25,20],borderColor:'rgba(255, 99, 132, 1)',fill:false},{label:'计划剩余 bug',data:[50,40,30,20,10,5,0],borderColor:'rgba(54, 162, 235, 1)',fill:false}]},options:{title:{display:true,text:'Bug 燃尽图'},scales:{xAxes:[{type:'time',time:{unit:'day'}}],yAxes:[{ticks:{beginAtZero:true}}]}}}"
+            alt="Chart" align="left" border="1px solid #ededed"
+            border-radius="4px" />
         </mj-column>
       </mj-section>
     </mj-wrapper>
