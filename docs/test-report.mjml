@@ -9,7 +9,7 @@
       <mj-class name="heading-container" padding="4px 0"
         border-bottom="2px solid #EADDFF" />
       <mj-class name="data-table" table-layout="fixed" width="100%"
-        border-collapse="collapse" border="3px solid purple"
+        border-collapse="collapse" color="#666"
         font-family="'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif" />
     </mj-attributes>
     <mj-style>
@@ -26,38 +26,34 @@
       }
 
       .data-table table {
-        border-collapse: collapse;
+        box-shadow: 0 1px 2px #d1d1d1;
+        border: 1px solid #ccc;
+        background: #eaebec;
+        border-radius: 4px;
+        overflow: hidden;
+        text-shadow: 1px 1px 0px #fff;
       }
 
       .data-table thead {
-        color: white;
-        text-shadow: 1px 1px 1px black;
       }
 
       .data-table thead th {
-        background: linear-gradient(to bottom, rgb(0 0 0 / 10%), rgb(0 0 0 / 50%));
-        border: 3px solid purple;
+        padding: 21px 25px 22px 25px;
+        border-top: 1px solid #fafafa;
       }
 
       .data-table th {
-        padding: 8px;
-        letter-spacing: 2px;
         text-align: left;
       }
 
       .data-table td {
         padding: 8px;
-        letter-spacing: 1px;
         text-align: left;
       }
 
-      .data-table tr:nth-child(odd) {
-        background-color: #ff33cc;
-      }
+      .data-table tr:nth-child(odd) {}
 
-      .data-table tr:nth-child(even) {
-        background-color: #e495e4;
-      }
+      .data-table tr:nth-child(even) {}
     </mj-style>
   </mj-head>
   <mj-body width="720px">
