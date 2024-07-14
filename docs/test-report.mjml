@@ -10,7 +10,7 @@
       <mj-class name="heading-column" padding-bottom="4px"
         border-bottom="2px solid #EADDFF" />
       <mj-class name="data-table" table-layout="fixed" width="100%"
-        color="#666"
+        color="#666" border="1px solid #ccc"
         font-family="'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif" />
     </mj-attributes>
     <mj-style>
@@ -28,7 +28,6 @@
 
       .data-table table {
         border-collapse: separate;
-        border: 1px solid #ccc;
         background: #eaebec;
         border-radius: 4px;
         text-shadow: 1px 1px 0px #fff;
@@ -37,8 +36,6 @@
 
       .data-table table th {
         padding: 8px 0;
-        border-top: 1px solid #fafafa;
-        border-bottom: 1px solid #e0e0e0;
         background: #ededed;
       }
 
@@ -66,8 +63,6 @@
 
       .data-table table td {
         padding: 8px;
-        border-top: 1px solid #ffffff;
-        border-bottom: 1px solid #e0e0e0;
         background: #fafafa;
       }
 
