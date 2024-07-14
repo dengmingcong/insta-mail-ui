@@ -54,16 +54,17 @@
       }
 
       .data-table table tr {
-        text-align: center;
+        text-align: left;
       }
       
       .data-table table td:first-child {
+        padding-left: 8px;
         text-align: left;
         border-left: 0;
       }
 
       .data-table table td {
-        padding: 8px;
+        padding: 8px 8px 8px 0;
         background: #fafafa;
       }
 
