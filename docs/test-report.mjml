@@ -88,6 +88,12 @@
     </mj-style>
   </mj-head>
   <mj-body width="720px">
+    <!-- Spacer -->
+    <mj-section>
+      <mj-column>
+        <mj-spacer height="24px" />
+      </mj-column>
+    </mj-section>
     <!-- Header -->
     <mj-section background-color="#EADDFF" border-radius="8px 8px 0 0"
       css-class="header-border" padding="24px 0">
