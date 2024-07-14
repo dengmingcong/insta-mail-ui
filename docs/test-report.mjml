@@ -11,7 +11,7 @@
       <mj-class name="heading-column" padding-bottom="4px"
         border-bottom="2px solid #EADDFF" />
       <mj-class name="data-table" table-layout="fixed" width="100%"
-        color="#666" border="1px solid #ccc"
+        color="#666" 
         font-family="'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif" />
     </mj-attributes>
     <mj-style>
@@ -28,7 +28,6 @@
       }
 
       .data-table table {
-        border-collapse: separate;
         background: #eaebec;
         border-radius: 4px;
         text-shadow: 1px 1px 0px #fff;
