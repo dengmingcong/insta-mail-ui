@@ -272,6 +272,42 @@
             border-radius="4px" />
         </mj-column>
       </mj-section>
+      <!-- 测试覆盖的接口 -->
+      <mj-section mj-class="heading-container not-the-first-heading-container">
+        <mj-column mj-class="heading-column">
+          <mj-text mj-class="heading-text">测试覆盖的接口</mj-text>
+        </mj-column>
+      </mj-section>
+      <mj-section>
+        <mj-column>
+          <mj-table mj-class="data-table" css-class="data-table">
+            <thead>
+              <tr>
+                <th scope="col" width="5%">ID</th>
+                <th scope="col" width="95%">接口 URL</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>/iot/api/accessories/v1/addWaterSoftner</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>/iot/api/accessories/v1/deleteWaterSoftner</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>/iot/api/accessories/v1/replaceWaterSoftner</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>/iot/api/accessories/v1/replaceWaterSoftner</td>
+              </tr>
+            </tbody>
+          </mj-table>
+        </mj-column>
+      </mj-section>
     </mj-wrapper>
   </mj-body>
 </mjml>
