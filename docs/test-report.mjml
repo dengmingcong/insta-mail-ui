@@ -315,5 +315,11 @@
         </mj-column>
       </mj-section>
     </mj-wrapper>
+    <!-- Spacer -->
+    <mj-section>
+      <mj-column>
+        <mj-spacer height="24px" />
+      </mj-column>
+    </mj-section>
   </mj-body>
 </mjml>
