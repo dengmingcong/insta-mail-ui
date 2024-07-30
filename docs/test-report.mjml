@@ -3,88 +3,48 @@
     <mj-attributes>
       <mj-class name="primary-color" color="#65558F"></mj-class>
       <mj-all padding="0" />
-      <mj-class name="heading-text"
+      <mj-class
+        name="heading-text"
         font-family="'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif"
-        font-weight="500" font-size="16px" line-height="24px" color="#65558F" />
+        font-weight="500"
+        font-size="16px"
+        line-height="24px"
+        color="#65558F"
+      />
       <mj-class name="heading-container" padding-bottom="8px" />
       <mj-class name="not-the-first-heading-container" padding-top="24px" />
-      <mj-class name="heading-column" padding-bottom="4px"
-        border-bottom="2px solid #EADDFF" />
-      <mj-class name="data-table" table-layout="fixed" width="100%" color="#666"
-        font-family="'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif" />
+      <mj-class
+        name="heading-column"
+        padding-bottom="4px"
+        border-bottom="2px solid #EADDFF"
+      />
+      <mj-class
+        name="data-table"
+        table-layout="fixed"
+        width="100%"
+        color="#666"
+        font-family="'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif"
+      />
     </mj-attributes>
     <mj-style>
-      .header-border {
-        border-top: 1px solid rgba(0, 0, 0, 0.1);
-        border-left: 1px solid rgba(0, 0, 0, 0.1);
-        border-right: 1px solid rgba(0, 0, 0, 0.1);
-      }
-
-      .content-border {
-        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-        border-left: 1px solid rgba(0, 0, 0, 0.1);
-        border-right: 1px solid rgba(0, 0, 0, 0.1);
-      }
-
-      .data-table table {
-        background: #eaebec;
-        border-radius: 4px;
-        text-shadow: 1px 1px 0px #fff;
-        box-shadow: 0 1px 2px #d1d1d1;
-      }
-
-      .data-table table th {
-        padding: 8px 0;
-        background: #ededed;
-      }
-
-      .data-table table th:first-child {
-        text-align: left;
-        padding-left: 8px;
-      }
-
-      .data-table table tr:first-child th:first-child {
-        border-top-left-radius: 4px;
-      }
-
-      .data-table table tr:first-child th:last-child {
-        border-top-right-radius: 4px;
-      }
-
-      .data-table table tr {
-        text-align: left;
-      }
-
-      .data-table table td:first-child {
-        padding-left: 8px;
-        text-align: left;
-        border-left: 0;
-      }
-
-      .data-table table td {
-        padding: 8px 8px 8px 0;
-        background: #fafafa;
-      }
-
-      .data-table tr:nth-child(even) td {
-        background: #f6f6f6;
-      }
-
-      .data-table tr:last-child td {
-        border-bottom: 0;
-      }
-
-      .data-table tr:last-child td:first-child {
-        border-bottom-left-radius: 4px;
-      }
-
-      .data-table tr:last-child td:last-child {
-        border-bottom-right-radius: 4px;
-      }
-
-      .data-table table tr:hover td {
-        background: #f2f2f2;
-      }
+      .header-border { border-top: 1px solid rgba(0, 0, 0, 0.1); border-left:
+      1px solid rgba(0, 0, 0, 0.1); border-right: 1px solid rgba(0, 0, 0, 0.1);
+      } .content-border { border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      border-left: 1px solid rgba(0, 0, 0, 0.1); border-right: 1px solid rgba(0,
+      0, 0, 0.1); } .data-table table { background: #eaebec; border-radius: 4px;
+      text-shadow: 1px 1px 0px #fff; box-shadow: 0 1px 2px #d1d1d1; }
+      .data-table table th { padding: 8px 0; background: #ededed; } .data-table
+      table th:first-child { text-align: left; padding-left: 8px; } .data-table
+      table tr:first-child th:first-child { border-top-left-radius: 4px; }
+      .data-table table tr:first-child th:last-child { border-top-right-radius:
+      4px; } .data-table table tr { text-align: left; } .data-table table
+      td:first-child { padding-left: 8px; text-align: left; border-left: 0; }
+      .data-table table td { padding: 8px 8px 8px 0; background: #fafafa; }
+      .data-table tr:nth-child(even) td { background: #f6f6f6; } .data-table
+      tr:last-child td { border-bottom: 0; } .data-table tr:last-child
+      td:first-child { border-bottom-left-radius: 4px; } .data-table
+      tr:last-child td:last-child { border-bottom-right-radius: 4px; }
+      .data-table table tr:hover td { background: #f2f2f2; }
     </mj-style>
   </mj-head>
   <mj-body width="720px">
@@ -95,31 +55,47 @@
       </mj-column>
     </mj-section>
     <!-- Header -->
-    <mj-section background-color="#EADDFF" border-radius="8px 8px 0 0"
-      css-class="header-border" padding="24px 0">
+    <mj-section
+      background-color="#EADDFF"
+      border-radius="8px 8px 0 0"
+      css-class="header-border"
+      padding="24px 0"
+    >
       <mj-column>
-        <mj-text align="center"
+        <mj-text
+          align="center"
           font-family="'Helvetica Neue', Helvetica, Arial, 'Lantinghei SC', 'PingFang SC', 'Microsoft YaHei', sans-serif"
-          font-size="30px" font-weight=500 line-height="38px"
-          letter-spacing="0.4em" mj-class="primary-color">
+          font-size="30px"
+          font-weight="500"
+          line-height="38px"
+          letter-spacing="0.4em"
+          mj-class="primary-color"
+        >
           接口测试报告
         </mj-text>
       </mj-column>
     </mj-section>
     <!-- Content -->
-    <mj-wrapper css-class="content-border" border-radius="0 0 8px 8px"
-      background-color="rgba(242, 242, 247, 0.3)" padding="0 30px 30px 30px">
+    <mj-wrapper
+      css-class="content-border"
+      border-radius="0 0 8px 8px"
+      background-color="rgba(242, 242, 247, 0.3)"
+      padding="0 30px 30px 30px"
+    >
       <!-- General -->
       <mj-section padding="24px 0">
         <mj-column>
           <mj-text
             font-family="'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif"
-            font-size="14px" line-height="16px">
-            <p style="margin: 0 0 8px 0;">测试结论: <span
-                style="color: green;">通过</span></p>
-            <p style="margin: 8px 0;">项目名称: 个性化广告和个性化内容开关</p>
-            <p style="margin: 8px 0;">测试人员: Raigor</p>
-            <p style="margin: 8px 0 0 0;">开发人员: Steam</p>
+            font-size="14px"
+            line-height="16px"
+          >
+            <p style="margin: 0 0 8px 0">
+              测试结论: <span style="color: green">通过</span>
+            </p>
+            <p style="margin: 8px 0">项目名称: 个性化广告和个性化内容开关</p>
+            <p style="margin: 8px 0">测试人员: Raigor</p>
+            <p style="margin: 8px 0 0 0">开发人员: Steam</p>
           </mj-text>
         </mj-column>
       </mj-section>
@@ -211,9 +187,7 @@
       </mj-section>
       <mj-section>
         <mj-column>
-          <mj-text>
-            一些风险的说明。
-          </mj-text>
+          <mj-text> 一些风险的说明。 </mj-text>
         </mj-column>
       </mj-section>
       <!-- 建议 -->
@@ -224,9 +198,7 @@
       </mj-section>
       <mj-section>
         <mj-column>
-          <mj-text>
-            一些建议的说明。
-          </mj-text>
+          <mj-text> 一些建议的说明。 </mj-text>
         </mj-column>
       </mj-section>
       <!-- bug 统计 -->
@@ -274,8 +246,11 @@
         <mj-column>
           <mj-image
             src="https://quickchart.io/chart?c={type:'line',data:{labels:['2024-07-01','2024-07-02','2024-07-03','2024-07-04','2024-07-05','2024-07-06','2024-07-07'],datasets:[{label:'实际剩余 bug',data:[50,45,40,35,30,25,20],borderColor:'rgba(255, 99, 132, 1)',fill:false},{label:'计划剩余 bug',data:[50,40,30,20,10,5,0],borderColor:'rgba(54, 162, 235, 1)',fill:false}]},options:{title:{display:true,text:'Bug 燃尽图'},scales:{xAxes:[{type:'time',time:{unit:'day'}}],yAxes:[{ticks:{beginAtZero:true}}]}}}"
-            alt="Chart" align="left" border="1px solid #ededed"
-            border-radius="4px" />
+            alt="Chart"
+            align="left"
+            border="1px solid #ededed"
+            border-radius="4px"
+          />
         </mj-column>
       </mj-section>
       <!-- 测试覆盖的接口 -->
