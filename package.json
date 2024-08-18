@@ -21,6 +21,7 @@
     "@mui/lab": "^5.0.0-alpha.85",
     "@mui/material": "^5.8.6",
     "@mui/x-data-grid": "^6.6.0",
+    "@refinedev/antd": "^5.42.0",
     "@refinedev/cli": "^2.16.21",
     "@refinedev/core": "^4.47.1",
     "@refinedev/devtools": "^1.1.32",
@@ -37,15 +38,19 @@
     "react-dom": "^18.0.0"
   },
   "devDependencies": {
+    "@eslint/js": "^9.9.0",
     "@types/js-cookie": "^3.0.6",
     "@types/node": "^18.16.2",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
     "@typescript-eslint/parser": "^6.21.0",
     "cross-env": "^7.0.3",
-    "eslint": "^8",
+    "eslint": "^8.57.0",
     "eslint-config-next": "^14.1.0",
-    "typescript": "^5.4.2"
+    "eslint-plugin-react": "^7.35.0",
+    "globals": "^15.9.0",
+    "typescript": "^5.4.2",
+    "typescript-eslint": "^8.1.0"
   },
   "refine": {
     "projectId": "R3IQ46-1dU5Tm-jv8GJy"
