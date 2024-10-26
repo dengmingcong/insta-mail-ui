@@ -1,6 +1,6 @@
 "use client";
 
-import { GitHubBanner, Refine, type AuthProvider } from "@refinedev/core";
+import { Refine, type AuthProvider } from "@refinedev/core";
 import { RefineKbar, RefineKbarProvider } from "@refinedev/kbar";
 import { RefineSnackbarProvider, notificationProvider } from "@refinedev/mui";
 import { SessionProvider, signIn, signOut, useSession } from "next-auth/react";
@@ -102,7 +102,6 @@ const App = (props: React.PropsWithChildren<AppProps>) => {
 
   return (
     <>
-      <GitHubBanner />
       <RefineKbarProvider>
         <ColorModeContextProvider defaultMode={defaultMode}>
           <RefineSnackbarProvider>
