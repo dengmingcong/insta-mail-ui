@@ -6,6 +6,7 @@ import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import { useLogin } from "@refinedev/core";
 import { ThemedTitleV2 } from "@refinedev/mui";
+import Image from "next/image";
 
 export default function Login() {
   const { mutate: login } = useLogin();
@@ -40,14 +41,16 @@ export default function Login() {
         >
           Sign in
         </Button>
-        <Typography align="center" color={"text.secondary"} fontSize="12px">
+        <Typography align="center" color={"text.secondary"} fontSize="14px" display="flex" alignItems="center" justifyContent="center">
           Powered by
-          <img
-            style={{ padding: "0 5px" }}
-            alt="Google"
-            src="https://refine.ams3.cdn.digitaloceanspaces.com/superplate-auth-icons%2Fgoogle.svg"
+          <Image
+            src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg"
+            width={24}
+            height={24}
+            style={{ padding: "0 5px", verticalAlign: "middle" }}
+            alt="Microsoft"
           />
-          Google
+          Microsoft
         </Typography>
       </Box>
     </Container>

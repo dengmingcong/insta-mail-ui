@@ -40,7 +40,7 @@ const App = (props: React.PropsWithChildren<AppProps>) => {
 
   const authProvider: AuthProvider = {
     login: async () => {
-      signIn("google", {
+      signIn("azure-ad", {
         callbackUrl: to ? to.toString() : "/",
         redirect: true,
       });
