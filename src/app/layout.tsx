@@ -22,6 +22,9 @@ export default function RootLayout({
 
   return (
     <html lang="en">
+      <head>
+        <title>Insta Mail</title>
+      </head>
       <body>
         <Suspense>
           <RefineContext defaultMode={defaultMode}>{children}</RefineContext>
