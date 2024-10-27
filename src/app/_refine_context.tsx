@@ -10,6 +10,7 @@ import React from "react";
 import routerProvider from "@refinedev/nextjs-router";
 
 import { ColorModeContextProvider } from "@contexts/color-mode";
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { dataProvider } from "@providers/data-provider";
 
 type RefineContextProps = {
@@ -136,6 +137,10 @@ const App = (props: React.PropsWithChildren<AppProps>) => {
                 syncWithLocation: true,
                 warnWhenUnsavedChanges: true,
                 useNewQueryKeys: true,
+                title: {
+                  icon: <AccountCircleIcon />,
+                  text: "Insta Mail",
+                }
               }}
             >
               {props.children}
