@@ -9,6 +9,7 @@ import React from "react";
 
 import routerProvider from "@refinedev/nextjs-router";
 
+import Logo from "@components/logo";
 import { ColorModeContextProvider } from "@contexts/color-mode";
 import { dataProvider } from "@providers/data-provider";
 
@@ -136,6 +137,10 @@ const App = (props: React.PropsWithChildren<AppProps>) => {
                 syncWithLocation: true,
                 warnWhenUnsavedChanges: true,
                 useNewQueryKeys: true,
+                title: {
+                  icon: <Logo />,
+                  text: "Insta Mail",
+                }
               }}
             >
               {props.children}
