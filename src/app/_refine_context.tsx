@@ -113,21 +113,11 @@ const App = (props: React.PropsWithChildren<AppProps>) => {
               authProvider={authProvider}
               resources={[
                 {
-                  name: "blog_posts",
-                  list: "/blog-posts",
-                  create: "/blog-posts/create",
-                  edit: "/blog-posts/edit/:id",
-                  show: "/blog-posts/show/:id",
-                  meta: {
-                    canDelete: true,
-                  },
-                },
-                {
-                  name: "categories",
-                  list: "/categories",
-                  create: "/categories/create",
-                  edit: "/categories/edit/:id",
-                  show: "/categories/show/:id",
+                  name: "templates",
+                  list: "/templates",
+                  create: "/templates/create",
+                  edit: "/templates/edit/:id",
+                  show: "/templates/show/:id",
                   meta: {
                     canDelete: true,
                   },
