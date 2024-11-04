@@ -11,6 +11,7 @@ import routerProvider from "@refinedev/nextjs-router";
 
 import Logo from "@components/logo";
 import { ColorModeContextProvider } from "@contexts/color-mode";
+import CategoryIcon from '@mui/icons-material/Category';
 import { dataProvider } from "@providers/data-provider";
 
 type RefineContextProps = {
@@ -120,6 +121,7 @@ const App = (props: React.PropsWithChildren<AppProps>) => {
                   show: "/templates/show/:id",
                   meta: {
                     canDelete: true,
+                    icon: <CategoryIcon />,
                   },
                 },
               ]}
