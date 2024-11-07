@@ -22,6 +22,7 @@ export default function TemplateEdit() {
           {...register("title", {
             required: "This field is required",
           })}
+          required
           error={!!errors?.title}
           helperText={typeof errors?.title?.message === "string" ? errors.title.message : ""}
           margin="normal"
@@ -30,6 +31,31 @@ export default function TemplateEdit() {
           type="text"
           label={"Title"}
           name="title"
+        />
+        <TextField
+          {...register("description")}
+          error={!!errors?.description}
+          helperText={typeof errors?.description?.message === "string" ? errors.description.message : ""}
+          margin="normal"
+          fullWidth
+          InputLabelProps={{ shrink: true }}
+          type="text"
+          label={"Description"}
+          name="description"
+        />
+        <TextField
+          {...register("html", { required: "This field is required" })}
+          required
+          error={!!errors?.html}
+          helperText={typeof errors?.html?.message === "string" ? errors.html.message : ""}
+          margin="normal"
+          fullWidth
+          InputLabelProps={{ shrink: true }}
+          type="text"
+          label={"HTML"}
+          name="html"
+          multiline
+          rows={10}
         />
       </Box>
     </Edit>
