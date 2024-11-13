@@ -2,7 +2,7 @@
 
 import CssBaseline from "@mui/material/CssBaseline";
 import GlobalStyles from "@mui/material/GlobalStyles";
-import { ThemeProvider } from "@mui/material/styles";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { RefineThemes } from "@refinedev/mui";
 import Cookies from "js-cookie";
@@ -52,6 +52,28 @@ export const ColorModeContextProvider: React.FC<
     Cookies.set("theme", nextTheme);
   };
 
+  const customBlue = createTheme({
+    ...RefineThemes.Blue,
+    components: {
+      MuiFormLabel: {
+        styleOverrides: {
+          asterisk: { color: "red" },
+        },
+      },
+    },
+  })
+
+  const customBlueDark = createTheme({
+    ...RefineThemes.BlueDark,
+    components: {
+      MuiFormLabel: {
+        styleOverrides: {
+          asterisk: { color: "red" },
+        },
+      },
+    },
+  })
+
   return (
     <ColorModeContext.Provider
       value={{
@@ -61,7 +83,7 @@ export const ColorModeContextProvider: React.FC<
     >
       <ThemeProvider
         // you can change the theme colors here. example: mode === "light" ? RefineThemes.Magenta : RefineThemes.MagentaDark
-        theme={mode === "light" ? RefineThemes.Blue : RefineThemes.BlueDark}
+        theme={mode === "light" ? customBlue : customBlueDark}
       >
         <CssBaseline />
         <GlobalStyles styles={{ html: { WebkitFontSmoothing: "auto" } }} />
