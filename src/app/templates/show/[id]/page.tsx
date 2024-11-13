@@ -24,6 +24,22 @@ export default function CategoryShow() {
           {"Title"}
         </Typography>
         <TextField value={record?.title} />
+        <Typography variant="body1" fontWeight="bold">
+          {"Uses"}
+        </Typography>
+        <TextField value={record?.uses} />
+        <Typography variant="body1" fontWeight="bold">
+          {"Created At"}
+        </Typography>
+        <TextField value={record?.created_at} />
+        <Typography variant="body1" fontWeight="bold">
+          {"Last Updated"}
+        </Typography>
+        <TextField value={record?.last_updated} />
+        <Typography variant="body1" fontWeight="bold">
+          {"HTML"}
+        </Typography>
+        <TextField value={record?.html} />
       </Stack>
     </Show>
   );
