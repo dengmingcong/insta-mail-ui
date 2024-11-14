@@ -11,6 +11,7 @@ import routerProvider from "@refinedev/nextjs-router";
 
 import Logo from "@components/logo";
 import { ColorModeContextProvider } from "@contexts/color-mode";
+import { AlternateEmail } from "@mui/icons-material";
 import CategoryIcon from '@mui/icons-material/Category';
 import { dataProvider } from "@providers/data-provider";
 
@@ -123,6 +124,17 @@ const App = (props: React.PropsWithChildren<AppProps>) => {
                     canDelete: true,
                     icon: <CategoryIcon />,
                   },
+                },
+                {
+                  name: "mails",
+                  list: "/mails",
+                  create: "/mails/create",
+                  edit: "/mails/edit/:id",
+                  show: "/mails/show/:id",
+                  meta: {
+                    canDelete: true,
+                    icon: <AlternateEmail />,
+                  }
                 },
               ]}
               options={{
