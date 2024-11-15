@@ -96,7 +96,7 @@ export default function MailList() {
         minWidth: 80,
       },
     ],
-    []
+    [templateData]
   );
 
   return (
