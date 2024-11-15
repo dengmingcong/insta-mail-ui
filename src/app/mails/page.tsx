@@ -1,6 +1,7 @@
 "use client";
 
 import { DataGrid, type GridColDef } from "@mui/x-data-grid";
+import { useMany } from "@refinedev/core";
 import {
   DeleteButton,
   EditButton,
@@ -11,7 +12,21 @@ import {
 import React from "react";
 
 export default function MailList() {
-  const { dataGridProps } = useDataGrid({});
+  const { dataGridProps } = useDataGrid({
+    syncWithLocation: true,
+  });
+
+  // Call useMany to find all records whose category_id is not null.
+  const { data: templateData, isLoading: templateIsLoading } = useMany({
+    resource: "templates",
+    ids:
+      dataGridProps?.rows
+        ?.map((item) => item?.template_id)
+        .filter(Boolean) ?? [],
+    queryOptions: {
+      enabled: !!dataGridProps?.rows,
+    }
+  });
 
   const columns = React.useMemo<GridColDef[]>(
     () => [
@@ -28,10 +43,21 @@ export default function MailList() {
         minWidth: 200,
       },
       {
-        field: "template",
+        field: "template_id",
         flex: 1,
         headerName: "Template",
         minWidth: 200,
+        valueGetter: ({ row }) => {
+          const value = row?.template_id;
+          return value;
+        },
+        renderCell: function render({ value }) {
+          return templateIsLoading ? (
+            <>Loading...</>
+          ) : (
+            templateData?.data?.find((item) => item.id?.toString() === value.toString())?.title
+          );
+        }
       },
       {
         field: "recent",
