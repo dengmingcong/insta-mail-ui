@@ -1,6 +1,6 @@
 "use client";
 
-import { DataGrid, type GridColDef } from "@mui/x-data-grid";
+import { DataGrid, type GridColDef, GridToolbar } from "@mui/x-data-grid";
 import {
   DeleteButton,
   EditButton,
@@ -69,7 +69,7 @@ export default function CategoryList() {
 
   return (
     <List>
-      <DataGrid {...dataGridProps} columns={columns} autoHeight />
+      <DataGrid {...dataGridProps} columns={columns} autoHeight slots={{ toolbar: GridToolbar }} />
     </List>
   );
 }
