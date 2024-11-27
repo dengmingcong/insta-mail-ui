@@ -10,6 +10,7 @@ const stepTitles = ["Select Template", "Write Mail", "Preview"];
 
 export default function MailCreate() {
   const {
+    watch,
     saveButtonProps,
     refineCore: { formLoading, onFinish },
     handleSubmit,
@@ -17,6 +18,9 @@ export default function MailCreate() {
     formState: { errors },
     steps: { currentStep, gotoStep }
   } = useStepsForm({});
+
+  // Watch field 'template' and return its value.
+  const selectedTemplate = watch("template");
 
   const theme = useTheme();
   const isSmallOrLess = useMediaQuery(theme.breakpoints.down("sm"));
@@ -69,7 +73,10 @@ export default function MailCreate() {
         );
       case 1:
         return (
-          <div>Step 2</div>
+          <div>
+            Step 2
+            <div>Selected Template: {selectedTemplate?.title}</div>
+          </div>
         )
       case 2:
         return (
