@@ -120,7 +120,6 @@ export default function MailCreate() {
           nonLinear
           activeStep={currentStep}
           orientation={isSmallOrLess ? "vertical" : "horizontal"}
-          alternativeLabel
         >
           {stepTitles.map((label, index) => (
             <Step key={label}>
