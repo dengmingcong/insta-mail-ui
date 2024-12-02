@@ -21,6 +21,7 @@ export default function CIReportCreate() {
               variant="outlined"
               required
               margin="normal"
+              InputLabelProps={{ shrink: true }}
             />
           )}
         />
@@ -29,6 +30,7 @@ export default function CIReportCreate() {
           defaultValue=""
           required
           margin="normal"
+          InputLabelProps={{ shrink: true }}
         />
       </Box>
     </>
