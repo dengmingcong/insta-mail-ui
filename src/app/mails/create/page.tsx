@@ -1,5 +1,6 @@
 "use client";
 
+import CIReportCreate from "@components/mail/forms/ci-report";
 import { Autocomplete, Box, Button, Step, StepButton, Stepper, TextField, useMediaQuery, useTheme } from "@mui/material";
 import { Create, SaveButton, useAutocomplete } from "@refinedev/mui";
 import { useStepsForm } from "@refinedev/react-hook-form";
@@ -76,6 +77,7 @@ export default function MailCreate() {
           <div>
             Step 2
             <div>Selected Template: {selectedTemplate?.title}</div>
+            <CIReportCreate />
           </div>
         )
       case 2:
