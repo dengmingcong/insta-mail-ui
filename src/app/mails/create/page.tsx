@@ -46,16 +46,9 @@ export default function MailCreate() {
                 onChange={(_, value) => {
                   field.onChange(value);
                 }}
-                getOptionLabel={(item) => {
-                  return (
-                    autocompleteProps?.options?.find(
-                      (p) => p?.id?.toString() === item?.id?.toString(),
-                    )?.title ?? ""
-                  )
-                }}
+                getOptionLabel={(option) => option?.title}
                 isOptionEqualToValue={(option, value) =>
-                  value === undefined ||
-                  option?.id?.toString() === (value?.id ?? value)?.toString()
+                  option?.title === value
                 }
                 renderInput={(params) => (
                   <TextField
