@@ -21,34 +21,36 @@ export default function CIReportCreate() {
   }
 
   return (
-    <>
-      <Box sx={{ display: "flex", flexDirection: "column" }}>
-        <Autocomplete
-          id="project"
-          {...projectAutocompleteProps}
-          getOptionLabel={(item) => item?.title}
-          onChange={(_, value) => {
-            handleProjectChange(value);
-          }}
-          renderInput={(params) => (
-            <TextField
-              {...params}
-              label="项目"
-              variant="outlined"
-              required
-              margin="normal"
-              InputLabelProps={{ shrink: true }}
-            />
-          )}
-        />
-        <TextField
-          label="项目经理"
-          required
-          margin="normal"
-          InputLabelProps={{ shrink: true }}
-          value={projectManager}
-        />
-      </Box>
-    </>
+    <Box sx={{ display: "flex", flexDirection: "column" }}>
+      <Autocomplete
+        id="project"
+        {...projectAutocompleteProps}
+        getOptionLabel={(item) => item?.title}
+        onChange={(_, value) => {
+          handleProjectChange(value);
+        }}
+        isOptionEqualToValue={(option, value) =>
+          value === undefined ||
+          option?.id?.toString() === (value?.id ?? value)?.toString()
+        }
+        renderInput={(params) => (
+          <TextField
+            {...params}
+            label="项目"
+            variant="outlined"
+            required
+            margin="normal"
+            InputLabelProps={{ shrink: true }}
+          />
+        )}
+      />
+      <TextField
+        label="项目经理"
+        required
+        margin="normal"
+        InputLabelProps={{ shrink: true }}
+        value={projectManager}
+      />
+    </Box>
   );
 }
