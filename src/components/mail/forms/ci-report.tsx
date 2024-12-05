@@ -17,7 +17,9 @@ export default function CIReportCreate() {
    * @param project.project_manager - The email of the project manager.
    */
   function handleProjectChange(project: { project_manager: string }) {
-    setProjectManager(project?.project_manager);
+    if (!projectManager) {
+      setProjectManager(project?.project_manager);
+    }
   }
 
   return (
@@ -50,6 +52,7 @@ export default function CIReportCreate() {
         margin="normal"
         InputLabelProps={{ shrink: true }}
         value={projectManager}
+        onChange={(e) => setProjectManager(e.target.value)}
       />
     </Box>
   );
