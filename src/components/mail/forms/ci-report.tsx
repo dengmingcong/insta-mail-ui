@@ -24,7 +24,7 @@ export default function CIReportCreate() {
     <Box sx={{ display: "flex", flexDirection: "column" }}>
       <Autocomplete
         id="project"
-        {...projectAutocompleteProps}
+        options={projectAutocompleteProps.options}
         getOptionLabel={(item) => item?.title}
         onChange={(_, value) => {
           handleProjectChange(value);

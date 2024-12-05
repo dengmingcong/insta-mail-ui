@@ -41,7 +41,7 @@ export default function MailCreate() {
             render={({ field }) => (
               <Autocomplete
                 id="template"
-                {...autocompleteProps}
+                options={autocompleteProps.options}
                 {...field}
                 onChange={(_, value) => {
                   field.onChange(value);
