@@ -1,4 +1,4 @@
-import { Autocomplete, Box, TextField } from "@mui/material";
+import { Autocomplete, Box, FormControl, InputLabel, MenuItem, Select, SelectChangeEvent, TextField } from "@mui/material";
 import { useAutocomplete } from "@refinedev/mui";
 import { useState } from "react";
 
@@ -21,6 +21,12 @@ export default function CIReportCreate() {
       setProjectManager(project?.project_manager);
     }
   }
+
+  const [conclude, setConclude] = useState('passed');
+
+  const handleChange = (event: SelectChangeEvent) => {
+    setConclude(event.target.value as string);
+  };
 
   return (
     <Box sx={{ display: "flex", flexDirection: "column" }}>
@@ -54,6 +60,23 @@ export default function CIReportCreate() {
         value={projectManager}
         onChange={(e) => setProjectManager(e.target.value)}
       />
+      <FormControl 
+        fullWidth
+        margin="normal"
+      >
+        <InputLabel id="conclude">结论</InputLabel>
+        <Select
+          labelId="conclude"
+          id="conclude-select"
+          value={conclude}
+          label="结论"
+          onChange={handleChange}
+          required
+        >
+          <MenuItem value={"passed"}>通过</MenuItem>
+          <MenuItem value={"failed"}>失败</MenuItem>
+        </Select>
+      </FormControl>
     </Box>
   );
 }
