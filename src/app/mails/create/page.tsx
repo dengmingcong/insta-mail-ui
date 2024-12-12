@@ -1,6 +1,6 @@
 "use client";
 
-import CIReportCreate from "@components/template/ci-report/create";
+import CIReportCreate from "@components/templates/ci-report/create";
 import { Autocomplete, Box, Button, Step, StepButton, Stepper, TextField, useMediaQuery, useTheme } from "@mui/material";
 import { Create, SaveButton, useAutocomplete } from "@refinedev/mui";
 import { useStepsForm } from "@refinedev/react-hook-form";
