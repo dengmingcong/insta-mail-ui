@@ -48,7 +48,6 @@ export default function CIReportCreate() {
             variant="outlined"
             required
             margin="normal"
-            InputLabelProps={{ shrink: true }}
           />
         )}
       />
@@ -56,7 +55,6 @@ export default function CIReportCreate() {
         label="项目经理"
         required
         margin="normal"
-        InputLabelProps={{ shrink: true }}
         value={projectManager}
         onChange={(e) => setProjectManager(e.target.value)}
       />

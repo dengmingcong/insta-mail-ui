@@ -27,7 +27,6 @@ export default function TemplateEdit() {
           helperText={typeof errors?.title?.message === "string" ? errors.title.message : ""}
           margin="normal"
           fullWidth
-          InputLabelProps={{ shrink: true }}
           type="text"
           label={"Title"}
           name="title"
@@ -38,7 +37,6 @@ export default function TemplateEdit() {
           helperText={typeof errors?.description?.message === "string" ? errors.description.message : ""}
           margin="normal"
           fullWidth
-          InputLabelProps={{ shrink: true }}
           type="text"
           label={"Description"}
           name="description"
@@ -50,7 +48,6 @@ export default function TemplateEdit() {
           helperText={typeof errors?.html?.message === "string" ? errors.html.message : ""}
           margin="normal"
           fullWidth
-          InputLabelProps={{ shrink: true }}
           type="text"
           label={"HTML"}
           name="html"
