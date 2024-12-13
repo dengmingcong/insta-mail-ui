@@ -68,11 +68,7 @@ export default function MailCreate() {
         );
       case 1:
         return (
-          <div>
-            Step 2
-            <div>Selected Template: {selectedTemplate?.title}</div>
-            <CIReportCreate />
-          </div>
+          <CIReportCreate />
         )
       case 2:
         return (
