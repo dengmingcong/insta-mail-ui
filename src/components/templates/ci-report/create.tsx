@@ -1,4 +1,14 @@
-import { Autocomplete, Box, FormControl, InputLabel, MenuItem, Select, SelectChangeEvent, TextField } from "@mui/material";
+import { 
+  Autocomplete, 
+  Box, 
+  FormControl, 
+  FormControlLabel, 
+  FormLabel, 
+  Radio,
+  RadioGroup, 
+  SelectChangeEvent, 
+  TextField 
+} from "@mui/material";
 import { useAutocomplete } from "@refinedev/mui";
 import { useState } from "react";
 
@@ -62,18 +72,17 @@ export default function CIReportCreate() {
         fullWidth
         margin="normal"
       >
-        <InputLabel id="conclude">结论</InputLabel>
-        <Select
-          labelId="conclude"
-          id="conclude-select"
+        <FormLabel id="conclude">结论</FormLabel>
+        <RadioGroup
+          row
+          aria-labelledby="conclude"
           value={conclude}
-          label="结论"
+          name="结论"
           onChange={handleChange}
-          required
         >
-          <MenuItem value={"passed"}>通过</MenuItem>
-          <MenuItem value={"failed"}>失败</MenuItem>
-        </Select>
+          <FormControlLabel value="passed" control={<Radio color="success"/> } label="通过" />
+          <FormControlLabel value="failed" control={<Radio color="warning"/>} label="失败" />
+        </RadioGroup>
       </FormControl>
     </Box>
   );
