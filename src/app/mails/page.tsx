@@ -8,6 +8,7 @@ import {
   List,
   ShowButton,
   useDataGrid,
+  TagField
 } from "@refinedev/mui";
 import React from "react";
 
@@ -55,7 +56,7 @@ export default function MailList() {
           return templateIsLoading ? (
             <>Loading...</>
           ) : (
-            templateData?.data?.find((item) => item.id?.toString() === value.toString())?.title
+            <TagField value={templateData?.data?.find((item) => item.id?.toString() === value.toString())?.title} />
           );
         }
       },
