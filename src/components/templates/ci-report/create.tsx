@@ -9,7 +9,7 @@ import {
   SelectChangeEvent, 
   TextField 
 } from "@mui/material";
-import { useAutocomplete } from "@refinedev/mui";
+import { TextFieldComponent, useAutocomplete } from "@refinedev/mui";
 import { useState } from "react";
 
 
@@ -40,6 +40,7 @@ export default function CIReportCreate() {
 
   return (
     <Box sx={{ display: "flex", flexDirection: "column" }}>
+      <TextFieldComponent value="项目信息" variant="subtitle1"/>
       <Autocomplete
         id="project"
         options={projectAutocompleteProps.options}
@@ -61,6 +62,7 @@ export default function CIReportCreate() {
           />
         )}
       />
+      <TextFieldComponent value="收件人" variant="subtitle1"/>
       <TextField
         label="项目经理"
         required
@@ -68,6 +70,7 @@ export default function CIReportCreate() {
         value={projectManager}
         onChange={(e) => setProjectManager(e.target.value)}
       />
+      <TextFieldComponent value="邮件正文" variant="subtitle1"/>
       <FormControl 
         fullWidth
         margin="normal"
