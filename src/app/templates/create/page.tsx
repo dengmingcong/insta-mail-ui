@@ -34,6 +34,7 @@ export default function TemplateCreate() {
         />
         <TextField
           {...register("description")}
+          required
           error={!!errors?.description}
           helperText={typeof errors?.description?.message === "string" ? errors.description.message : ""}
           margin="normal"
