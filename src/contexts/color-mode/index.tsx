@@ -57,7 +57,7 @@ export const ColorModeContextProvider: React.FC<
     components: {
       MuiFormLabel: {
         styleOverrides: {
-          asterisk: { color: "red" },
+          asterisk: { display: "none" },
         },
       },
     },
@@ -68,7 +68,7 @@ export const ColorModeContextProvider: React.FC<
     components: {
       MuiFormLabel: {
         styleOverrides: {
-          asterisk: { color: "red" },
+          asterisk: { display: "none" },
         },
       },
     },
