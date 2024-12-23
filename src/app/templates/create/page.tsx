@@ -23,7 +23,6 @@ export default function TemplateCreate() {
           {...register("title", {
             required: "This field is required",
           })}
-          required
           error={!!errors?.title}
           helperText={typeof errors?.title?.message === "string" ? errors.title.message : ""}
           margin="normal"
@@ -33,8 +32,9 @@ export default function TemplateCreate() {
           name="title"
         />
         <TextField
-          {...register("description")}
-          required
+          {...register("description", {
+            required: "This field is required",
+          })}
           error={!!errors?.description}
           helperText={typeof errors?.description?.message === "string" ? errors.description.message : ""}
           margin="normal"
@@ -45,7 +45,6 @@ export default function TemplateCreate() {
         />
         <TextField
           {...register("html", { required: "This field is required" })}
-          required
           error={!!errors?.html}
           helperText={typeof errors?.html?.message === "string" ? errors.html.message : ""}
           margin="normal"
