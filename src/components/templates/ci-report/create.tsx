@@ -60,6 +60,18 @@ export default function CIReportCreate() {
           <FormControlLabel value="failed" control={<Radio color="warning"/>} label="失败" />
         </RadioGroup>
       </FormControl>
+      <TextField
+        label="风险"
+        margin="normal"
+        multiline
+        rows={3}
+      />
+      <TextField
+        label="建议"
+        margin="normal"
+        multiline
+        rows={3}
+      />
     </Box>
   );
 }
