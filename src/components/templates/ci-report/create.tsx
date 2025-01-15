@@ -9,7 +9,7 @@ import {
   SelectChangeEvent, 
   TextField 
 } from "@mui/material";
-import { TextFieldComponent, useAutocomplete } from "@refinedev/mui";
+import { useAutocomplete } from "@refinedev/mui";
 import { useState } from "react";
 
 
@@ -17,20 +17,6 @@ export default function CIReportCreate() {
   const { autocompleteProps: projectAutocompleteProps } = useAutocomplete({
     resource: "projects",
   });
-
-  const [projectManager, setProjectManager] = useState("");
-  
-  /**
-   * Handles the change of the project by updating the project manager state.
-   *
-   * @param project - An object containing the project details.
-   * @param project.project_manager - The email of the project manager.
-   */
-  function handleProjectChange(project: { project_manager: string }) {
-    if (!projectManager) {
-      setProjectManager(project?.project_manager);
-    }
-  }
 
   const [conclude, setConclude] = useState('passed');
 
@@ -40,14 +26,10 @@ export default function CIReportCreate() {
 
   return (
     <Box sx={{ display: "flex", flexDirection: "column" }}>
-      <TextFieldComponent value="项目信息" variant="subtitle1"/>
       <Autocomplete
         id="project"
         options={projectAutocompleteProps.options}
         getOptionLabel={(item) => item?.title}
-        onChange={(_, value) => {
-          handleProjectChange(value);
-        }}
         isOptionEqualToValue={(option, value) =>
           value === undefined ||
           option?.id?.toString() === (value?.id ?? value)?.toString()
@@ -62,15 +44,6 @@ export default function CIReportCreate() {
           />
         )}
       />
-      <TextFieldComponent value="收件人" variant="subtitle1"/>
-      <TextField
-        label="项目经理"
-        required
-        margin="normal"
-        value={projectManager}
-        onChange={(e) => setProjectManager(e.target.value)}
-      />
-      <TextFieldComponent value="邮件正文" variant="subtitle1"/>
       <FormControl 
         fullWidth
         margin="normal"
