@@ -64,13 +64,13 @@ export default function CIReportCreate() {
         label="风险"
         margin="normal"
         multiline
-        rows={3}
+        rows={2}
       />
       <TextField
         label="建议"
         margin="normal"
         multiline
-        rows={3}
+        rows={2}
       />
     </Box>
   );
