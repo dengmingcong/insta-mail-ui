@@ -13,7 +13,7 @@ import { useAutocomplete } from "@refinedev/mui";
 import { useState } from "react";
 
 
-export default function CIReportCreate() {
+export default function CIReportCreate({setProject}) {
   const { autocompleteProps: projectAutocompleteProps } = useAutocomplete({
     resource: "projects",
   });
@@ -30,6 +30,7 @@ export default function CIReportCreate() {
         id="project"
         options={projectAutocompleteProps.options}
         getOptionLabel={(item) => item?.title}
+        onChange={(_, value) => {setProject(value)}}
         isOptionEqualToValue={(option, value) =>
           value === undefined ||
           option?.id?.toString() === (value?.id ?? value)?.toString()

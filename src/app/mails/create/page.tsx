@@ -4,7 +4,7 @@ import CIReportCreate from "@components/templates/ci-report/create";
 import { Autocomplete, Box, Button, Step, StepButton, Stepper, TextField, useMediaQuery, useTheme } from "@mui/material";
 import { Create, SaveButton, useAutocomplete } from "@refinedev/mui";
 import { useStepsForm } from "@refinedev/react-hook-form";
-
+import { useState } from "react";
 import { Controller } from "react-hook-form";
 
 const stepTitles = ["Select Template", "Write Mail", "Preview"];
@@ -29,6 +29,8 @@ export default function MailCreate() {
   const { autocompleteProps } = useAutocomplete({
     resource: "templates",
   })
+
+  const [project, setProject] = useState(null);
 
   const renderFormByStep = (step: number) => {
     switch (step) {
@@ -68,7 +70,7 @@ export default function MailCreate() {
         );
       case 1:
         return (
-          <CIReportCreate />
+          <CIReportCreate setProject={setProject} />
         )
       case 2:
         return (
