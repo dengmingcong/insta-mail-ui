@@ -1,6 +1,7 @@
 "use client";
 
 import CIReportCreate from "@components/templates/ci-report/create";
+import CIReportPreview from "@components/templates/ci-report/preview";
 import { Autocomplete, Box, Button, Step, StepButton, Stepper, TextField, useMediaQuery, useTheme } from "@mui/material";
 import { Create, SaveButton, useAutocomplete } from "@refinedev/mui";
 import { useStepsForm } from "@refinedev/react-hook-form";
@@ -74,7 +75,7 @@ export default function MailCreate() {
         )
       case 2:
         return (
-          <div>Step 3</div>
+          <CIReportPreview project={project} />
         )
     }
   };
