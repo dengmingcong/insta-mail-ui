@@ -1,129 +1,96 @@
 "use client";
 
-import CIReportCreate from "@components/templates/ci-report/create";
-import CIReportPreview from "@components/templates/ci-report/preview";
-import { Autocomplete, Box, Button, Step, StepButton, Stepper, TextField, useMediaQuery, useTheme } from "@mui/material";
-import { Create, SaveButton, useAutocomplete } from "@refinedev/mui";
-import { useStepsForm } from "@refinedev/react-hook-form";
+import { Autocomplete, Box, FormControl, FormControlLabel, FormLabel, Radio, RadioGroup, SelectChangeEvent, TextField } from "@mui/material";
+import { Create, useAutocomplete } from "@refinedev/mui";
+import { useForm } from "@refinedev/react-hook-form";
 import { useState } from "react";
-import { Controller } from "react-hook-form";
 
-const stepTitles = ["Select Template", "Write Mail", "Preview"];
 
 export default function MailCreate() {
   const {
-    watch,
     saveButtonProps,
-    refineCore: { formLoading, onFinish },
-    handleSubmit,
-    control,
+    register,
+    refineCore: { formLoading },
     formState: { errors },
-    steps: { currentStep, gotoStep }
-  } = useStepsForm({});
+  } = useForm({});
 
-  // Watch field 'template' and return its value.
-  const selectedTemplate = watch("template");
+  const { autocompleteProps: projectAutocompleteProps } = useAutocomplete({
+    resource: "projects",
+  });
 
-  const theme = useTheme();
-  const isSmallOrLess = useMediaQuery(theme.breakpoints.down("sm"));
+  const [conclude, setConclude] = useState('passed');
 
-  const { autocompleteProps } = useAutocomplete({
-    resource: "templates",
-  })
-
-  const [project, setProject] = useState(null);
-
-  const renderFormByStep = (step: number) => {
-    switch (step) {
-      case 0:
-        return (
-          <Controller
-            control={control}
-            name="template"
-            rules={{ required: "This field is required" }}
-            render={({ field }) => (
-              <Autocomplete
-                id="template"
-                options={autocompleteProps.options}
-                {...field}
-                onChange={(_, value) => {
-                  field.onChange(value);
-                }}
-                getOptionLabel={(option) => option?.title}
-                isOptionEqualToValue={(option, value) =>
-                  value === undefined ||
-                  option?.id?.toString() === (value?.id ?? value)?.toString()
-                }
-                renderInput={(params) => (
-                  <TextField
-                    {...params}
-                    label="Template"
-                    margin="normal"
-                    variant="outlined"
-                    error={!!errors?.template}
-                    helperText={errors.template?.message?.toString()}
-                    required
-                  />
-                )}
-              />
-            )}
-          />
-        );
-      case 1:
-        return (
-          <CIReportCreate setProject={setProject} />
-        )
-      case 2:
-        return (
-          <CIReportPreview project={project} />
-        )
-    }
+  const handleChange = (event: SelectChangeEvent) => {
+    setConclude(event.target.value as string);
   };
 
   return (
-    <Create
-      isLoading={formLoading}
-      saveButtonProps={saveButtonProps}
-      footerButtons={
-        <>
-          {currentStep > 0 && (
-            <Button
-              onClick={() => gotoStep(currentStep - 1)}
-            >
-              Previous
-            </Button>
-          )}
-          {currentStep < stepTitles.length - 1 && (
-            <Button
-              onClick={() => gotoStep(currentStep + 1)}
-            >
-              Next
-            </Button>
-          )}
-          {currentStep === stepTitles.length - 1 && (
-            <SaveButton onClick={handleSubmit(onFinish)} />
-          )}
-        </>
-      }
-    >
+    <Create isLoading={formLoading} saveButtonProps={saveButtonProps}>
       <Box
         component="form"
         sx={{ display: "flex", flexDirection: "column" }}
         autoComplete="off"
       >
-        <Stepper
-          nonLinear
-          activeStep={currentStep}
-          orientation={isSmallOrLess ? "vertical" : "horizontal"}
+        <Autocomplete
+          id="project"
+          options={projectAutocompleteProps.options}
+          getOptionLabel={(item) => item?.title}
+          isOptionEqualToValue={(option, value) =>
+            value === undefined ||
+            option?.id?.toString() === (value?.id ?? value)?.toString()
+          }
+          renderInput={(params) => (
+            <TextField
+              {...params}
+              {...register("project", {
+                required: "This field is required",
+              })}
+              error={!!errors?.title}
+              helperText={typeof errors?.title?.message === "string" ? errors.title.message : ""}
+              label="项目"
+              variant="outlined"
+              margin="normal"
+              name="project"
+            />
+          )}
+        />
+        <FormControl 
+          fullWidth
+          margin="normal"
         >
-          {stepTitles.map((label, index) => (
-            <Step key={label}>
-              <StepButton onClick={() => gotoStep(index)}>{label}</StepButton>
-            </Step>
-          ))}
-        </Stepper>
-        <br />
-        {renderFormByStep(currentStep)}
+          <FormLabel id="conclude">结论</FormLabel>
+          <RadioGroup
+            row
+            aria-labelledby="conclude"
+            value={conclude}
+            name="conclude"
+            onChange={handleChange}
+          >
+            <FormControlLabel value="passed" control={<Radio color="success"/> } label="通过" />
+            <FormControlLabel value="failed" control={<Radio color="warning"/>} label="失败" />
+          </RadioGroup>
+          <input
+            type="hidden"
+            {...register("conclude")}
+            value={conclude}
+          />
+        </FormControl>
+        <TextField
+          {...register("risk")}
+          label="风险"
+          margin="normal"
+          multiline
+          rows={2}
+          name="risk"
+        />
+        <TextField
+          {...register("suggestion")}
+          label="建议"
+          margin="normal"
+          multiline
+          rows={2}
+          name="suggestion"
+        />
       </Box>
     </Create>
   );
