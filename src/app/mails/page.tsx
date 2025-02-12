@@ -43,23 +43,23 @@ export default function MailList() {
         headerName: "Project",
         minWidth: 200,
       },
-      {
-        field: "template_id",
-        flex: 1,
-        headerName: "Template",
-        minWidth: 200,
-        valueGetter: ({ row }) => {
-          const value = row?.template_id;
-          return value;
-        },
-        renderCell: function render({ value }) {
-          return templateIsLoading ? (
-            <>Loading...</>
-          ) : (
-            <TagField value={templateData?.data?.find((item) => item.id?.toString() === value.toString())?.title} />
-          );
-        }
-      },
+      // {
+      //   field: "template_id",
+      //   flex: 1,
+      //   headerName: "Template",
+      //   minWidth: 200,
+      //   valueGetter: ({ row }) => {
+      //     const value = row?.template_id;
+      //     return value;
+      //   },
+      //   renderCell: function render({ value }) {
+      //     return templateIsLoading ? (
+      //       <>Loading...</>
+      //     ) : (
+      //       <TagField value={templateData?.data?.find((item) => item.id?.toString() === value.toString())?.title} />
+      //     );
+      //   }
+      // },
       {
         field: "recent",
         flex: 1,
