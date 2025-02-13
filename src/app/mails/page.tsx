@@ -1,5 +1,7 @@
 "use client";
 
+import { IconButton } from "@mui/material";
+import BugReportOutlinedIcon from '@mui/icons-material/BugReportOutlined';
 import { DataGrid, type GridColDef, GridToolbar } from "@mui/x-data-grid";
 import { useMany } from "@refinedev/core";
 import {
@@ -88,6 +90,9 @@ export default function MailList() {
             <>
               <EditButton hideText recordItemId={row.id} />
               <ShowButton hideText recordItemId={row.id} />
+              <IconButton aria-label="test" color="info">
+                <BugReportOutlinedIcon />
+              </IconButton>
               <DeleteButton hideText recordItemId={row.id} />
             </>
           );
