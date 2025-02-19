@@ -14,6 +14,8 @@ import {
 } from "@refinedev/mui";
 import React from "react";
 
+import { sendMailHandler } from '../../components/mails/sendMailHandler';
+
 export default function MailList() {
   const { dataGridProps } = useDataGrid({
     syncWithLocation: true,
@@ -30,6 +32,10 @@ export default function MailList() {
       enabled: !!dataGridProps?.rows,
     }
   });
+
+  const handleTestButtonClick = async () => {
+    await sendMailHandler();
+  };
 
   const columns = React.useMemo<GridColDef[]>(
     () => [
@@ -90,7 +96,7 @@ export default function MailList() {
             <>
               <EditButton hideText recordItemId={row.id} />
               <ShowButton hideText recordItemId={row.id} />
-              <IconButton aria-label="test" color="info">
+              <IconButton aria-label="test" color="info" onClick={handleTestButtonClick}>
                 <BugReportOutlinedIcon />
               </IconButton>
               <DeleteButton hideText recordItemId={row.id} />

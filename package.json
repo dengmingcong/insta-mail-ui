@@ -17,6 +17,7 @@
     "@azure/msal-react": "^2.0.22",
     "@emotion/react": "^11.8.2",
     "@emotion/styled": "^11.8.1",
+    "@microsoft/microsoft-graph-client": "^3.0.7",
     "@mui/icons-material": "^5.8.3",
     "@mui/lab": "^5.0.0-alpha.85",
     "@mui/material": "^5.8.6",
@@ -41,6 +42,7 @@
   "devDependencies": {
     "@eslint/js": "^9.9.0",
     "@types/js-cookie": "^3.0.6",
+    "@types/microsoft-graph": "^2.40.0",
     "@types/node": "^18.16.2",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
