@@ -33,8 +33,8 @@ export default function MailList() {
     }
   });
 
-  const handleTestButtonClick = async () => {
-    await sendMailHandler();
+  const handleTestButtonClick = async (id: number) => {
+    await sendMailHandler(id);
   };
 
   const columns = React.useMemo<GridColDef[]>(
@@ -96,7 +96,7 @@ export default function MailList() {
             <>
               <EditButton hideText recordItemId={row.id} />
               <ShowButton hideText recordItemId={row.id} />
-              <IconButton aria-label="test" color="info" onClick={handleTestButtonClick}>
+              <IconButton aria-label="test" color="info" onClick={() => handleTestButtonClick(row.id)}>
                 <BugReportOutlinedIcon />
               </IconButton>
               <DeleteButton hideText recordItemId={row.id} />

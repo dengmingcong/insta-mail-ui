@@ -1,7 +1,7 @@
 import { Client } from '@microsoft/microsoft-graph-client';
 import { getSession } from 'next-auth/react';
 
-export async function sendMailHandler() {
+export async function sendMailHandler(id: number) {
   const session = await getSession();
 
   if (session) {
@@ -13,7 +13,7 @@ export async function sendMailHandler() {
 
     const sendMail = {
       message: {
-        subject: 'Meet for lunch?',
+        subject: `Meet for lunch? (ID: ${id})`,
         body: { contentType: 'Text', content: 'The new cafeteria is open.' },
         toRecipients: [
           { emailAddress: { address: 'raigor.deng@vesync.com' } },
@@ -22,6 +22,6 @@ export async function sendMailHandler() {
     };
 
     await client.api('/me/sendMail').post(sendMail);
-    console.log('Email sent successfully');
+    console.log(`Email sent successfully for ID: ${id}`);
   }
 }
