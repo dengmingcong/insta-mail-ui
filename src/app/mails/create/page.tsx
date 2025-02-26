@@ -4,7 +4,6 @@ import { Autocomplete, Box, FormControl, FormControlLabel, FormLabel, Radio, Rad
 import { Create, useAutocomplete } from "@refinedev/mui";
 import { useForm } from "@refinedev/react-hook-form";
 import { useState } from "react";
-import { debounce } from "lodash";
 
 export default function MailCreate() {
   const {
@@ -14,19 +13,15 @@ export default function MailCreate() {
     formState: { errors },
   } = useForm({});
 
-  const [searchTerm, setSearchTerm] = useState("");
-
-  const handleSearchChange = debounce((event: React.ChangeEvent<{}>, value: string) => {
-    setSearchTerm(value);
-  }, 300);
 
   const { autocompleteProps: projectAutocompleteProps } = useAutocomplete({
     resource: "projects",
-    filters: [
+    debounce: 500,
+    onSearch: (value) => [
       {
         field: "title",
         operator: "contains",
-        value: searchTerm,
+        value,
       },
     ],
   });
@@ -45,14 +40,13 @@ export default function MailCreate() {
         autoComplete="off"
       >
         <Autocomplete
+          {...projectAutocompleteProps}
           id="project"
-          options={projectAutocompleteProps.options}
           getOptionLabel={(item) => item?.title}
           isOptionEqualToValue={(option, value) =>
             value === undefined ||
             option?.id?.toString() === (value?.id ?? value)?.toString()
           }
-          onInputChange={handleSearchChange}
           renderInput={(params) => (
             <TextField
               {...params}
