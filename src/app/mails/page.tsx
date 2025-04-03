@@ -21,17 +21,17 @@ export default function MailList() {
     syncWithLocation: true,
   });
 
-  // Call useMany to find all records whose category_id is not null.
-  const { data: templateData, isLoading: templateIsLoading } = useMany({
-    resource: "templates",
-    ids:
-      dataGridProps?.rows
-        ?.map((item) => item?.template_id)
-        .filter(Boolean) ?? [],
-    queryOptions: {
-      enabled: !!dataGridProps?.rows,
-    }
-  });
+  // Call useMany to find all records whose template_id is not null.
+  // const { data: templateData, isLoading: templateIsLoading } = useMany({
+  //   resource: "templates",
+  //   ids:
+  //     dataGridProps?.rows
+  //       ?.map((item) => item?.template_id)
+  //       .filter(Boolean) ?? [],
+  //   queryOptions: {
+  //     enabled: !!dataGridProps?.rows,
+  //   }
+  // });
 
   const handleTestButtonClick = async (id: number) => {
     const { data } = useOne({
@@ -113,7 +113,7 @@ export default function MailList() {
         minWidth: 80,
       },
     ],
-    [templateData]
+    []
   );
 
   return (
