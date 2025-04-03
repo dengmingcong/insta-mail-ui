@@ -51,7 +51,7 @@ export default function MailList() {
         minWidth: 50,
       },
       {
-        field: "project",
+        field: "project_name",
         flex: 1,
         headerName: "Project",
         minWidth: 200,
@@ -73,12 +73,12 @@ export default function MailList() {
       //     );
       //   }
       // },
-      {
-        field: "recent",
-        flex: 1,
-        headerName: "Recent",
-        minWidth: 100,
-      },
+      // {
+      //   field: "recent",
+      //   flex: 1,
+      //   headerName: "Recent",
+      //   minWidth: 100,
+      // },
       {
         field: "created_at",
         flex: 1,
