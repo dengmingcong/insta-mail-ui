@@ -3,7 +3,7 @@
 import { IconButton } from "@mui/material";
 import BugReportOutlinedIcon from '@mui/icons-material/BugReportOutlined';
 import { DataGrid, type GridColDef, GridToolbar } from "@mui/x-data-grid";
-import { useMany } from "@refinedev/core";
+import { useMany, useOne } from "@refinedev/core";
 import {
   DeleteButton,
   EditButton,
@@ -34,7 +34,12 @@ export default function MailList() {
   });
 
   const handleTestButtonClick = async (id: number) => {
-    await sendMailHandler(id);
+    const { data } = useOne({
+      resource: "mails",
+      id,
+    })
+
+    await sendMailHandler(data);
   };
 
   const columns = React.useMemo<GridColDef[]>(
