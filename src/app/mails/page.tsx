@@ -12,7 +12,7 @@ import {
   useDataGrid,
   TagField
 } from "@refinedev/mui";
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import { sendMailHandler } from '../../components/mails/sendMailHandler';
 
@@ -33,13 +33,32 @@ export default function MailList() {
   //   }
   // });
 
-  const handleTestButtonClick = async (id: number) => {
-    const { data } = useOne({
-      resource: "mails",
-      id,
-    })
+  const [selectedMail, setSelectedMail] = useState(null);
 
-    await sendMailHandler(data);
+  const { data: mailData } = useOne({
+    resource: "mails",
+    id: selectedMail,
+    queryOptions: {
+      enabled: !!selectedMail,
+    },
+  });
+
+  useEffect(() => {
+    if (selectedMail) {
+      console.log("Selected mail ID:", selectedMail);
+      console.log("Mail data:", mailData);
+      if (mailData) {
+        sendMailHandler(mailData);
+      }
+    }
+  }, [selectedMail, mailData]);
+
+  const handleTestButtonClick = async () => {
+    console.log("Selected mail ID:", selectedMail);
+    console.log("Mail data:", mailData);
+    if (mailData) {
+      await sendMailHandler(mailData.data);
+    }
   };
 
   const columns = React.useMemo<GridColDef[]>(
@@ -101,7 +120,14 @@ export default function MailList() {
             <>
               <EditButton hideText recordItemId={row.id} />
               <ShowButton hideText recordItemId={row.id} />
-              <IconButton aria-label="test" color="info" onClick={() => handleTestButtonClick(row.id)}>
+              <IconButton
+                aria-label="test"
+                color="info"
+                onClick={() => {
+                  setSelectedMail(row.id);
+                  handleTestButtonClick();
+                }}
+              >
                 <BugReportOutlinedIcon />
               </IconButton>
               <DeleteButton hideText recordItemId={row.id} />
@@ -118,7 +144,12 @@ export default function MailList() {
 
   return (
     <List>
-      <DataGrid {...dataGridProps} columns={columns} autoHeight slots={{ toolbar: GridToolbar }} />
+      <DataGrid
+        {...dataGridProps}
+        columns={columns}
+        autoHeight
+        slots={{ toolbar: GridToolbar }}
+      />
     </List>
   );
 }
