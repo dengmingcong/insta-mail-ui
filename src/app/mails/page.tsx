@@ -53,14 +53,6 @@ export default function MailList() {
     }
   }, [selectedMail, mailData]);
 
-  const handleTestButtonClick = async () => {
-    console.log("Selected mail ID:", selectedMail);
-    console.log("Mail data:", mailData);
-    if (mailData) {
-      await sendMailHandler(mailData.data);
-    }
-  };
-
   const columns = React.useMemo<GridColDef[]>(
     () => [
       {
@@ -123,10 +115,7 @@ export default function MailList() {
               <IconButton
                 aria-label="test"
                 color="info"
-                onClick={() => {
-                  setSelectedMail(row.id);
-                  handleTestButtonClick();
-                }}
+                onClick={() => setSelectedMail(row.id) }
               >
                 <BugReportOutlinedIcon />
               </IconButton>

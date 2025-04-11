@@ -1,7 +1,7 @@
 import { Client } from '@microsoft/microsoft-graph-client';
 import { getSession } from 'next-auth/react';
 
-export async function sendMailHandler(mail) {
+export async function sendMailHandler({ data: mail }) {
   const session = await getSession();
 
   if (session) {
