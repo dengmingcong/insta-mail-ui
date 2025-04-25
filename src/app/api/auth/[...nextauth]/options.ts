@@ -13,6 +13,11 @@ const authOptions = {
       clientId: process.env.AZURE_AD_CLIENT_ID || '',
       clientSecret: process.env.AZURE_AD_CLIENT_SECRET || '',
       tenantId: process.env.AZURE_AD_TENANT_ID,
+      authorization: {
+        params: {
+          scope: "openid profile email offline_access",
+        },
+      },
     }),
   ],
   callbacks: {
@@ -24,21 +29,39 @@ const authOptions = {
       // Persist the OAuth access_token and or the user id to the token right after signin.
       // If `account` exists, it means that the callback is being invoked for the first time (i.e. the user is signing in).
       if (account) {
-        token.accessToken = account.access_token
-        token.id = profile.id
+        token.accessToken = account.access_token;
+        token.id = profile.id;
+
+        // Save tokens to backend using fetch
+        try {
+          await fetch("http://localhost:8000/tokens", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              user_id: profile.id,
+              access_token: account.access_token,
+              expires_at: account.expires_at,
+              refresh_token: account.refresh_token,
+            }),
+          });
+        } catch (error) {
+          console.error("Failed to save tokens to backend:", error);
+        }
       }
 
-      return token
+      return token;
     },
     // The `session` callback is called whenever a session is checked. 
     // By default, only a subset of the token is returned for increased security.
     // To make `accessToken` and `id` added to the `token` available via the `jwt()` callback, we have to explicitly forward it here to make it available to the client.
     async session({ session, token }) {
       // Send properties to the client, like an access_token and user id from a provider.
-      session.accessToken = token.accessToken
-      session.user.id = token.id
+      session.accessToken = token.access_token;
+      session.user.id = token.id;
 
-      return session
+      return session;
     }
   },
   secret: `UItTuD1HcGXIj8ZfHUswhYdNd40Lc325R8VlxQPUoR0=`,
