@@ -34,18 +34,26 @@ const authOptions = {
 
         // Save tokens to backend using fetch
         try {
-          await fetch("http://localhost:8000/tokens", {
+          const response = await fetch("http://localhost:8000/tokens", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
             },
             body: JSON.stringify({
-              user_id: profile.id,
+              email: profile.email,
               access_token: account.access_token,
               expires_at: account.expires_at,
               refresh_token: account.refresh_token,
             }),
           });
+
+          if (!response.ok) {
+            console.error("Failed to save tokens to backend. Response status:", response.status);
+            const errorData = await response.json();
+            console.error("Error details:", errorData);
+          } else {
+            console.log("Tokens successfully saved to backend.");
+          }
         } catch (error) {
           console.error("Failed to save tokens to backend:", error);
         }
