@@ -2,6 +2,6 @@
 
 import dataProviderSimpleRest from "@refinedev/simple-rest";
 
-const API_URL = "http://localhost:8000";
+const BACKEND_API_ORIGIN = process.env.BACKEND_API_ORIGIN || "http://localhost:8000";
 
-export const dataProvider = dataProviderSimpleRest(API_URL);
+export const dataProvider = dataProviderSimpleRest(BACKEND_API_ORIGIN);

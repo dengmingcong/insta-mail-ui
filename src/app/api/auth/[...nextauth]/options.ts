@@ -1,6 +1,9 @@
 import AzureADProvider from "next-auth/providers/azure-ad";
 import GoogleProvider from "next-auth/providers/google";
 
+
+const BACKEND_API_ORIGIN = process.env.BACKEND_API_ORIGIN || 'http://localhost:8000';
+
 const authOptions = {
   // Configure one or more authentication providers
   providers: [
@@ -34,7 +37,7 @@ const authOptions = {
 
         // Save tokens to backend using fetch
         try {
-          const response = await fetch("http://localhost:8000/tokens", {
+          const response = await fetch(`${BACKEND_API_ORIGIN}/tokens`, {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
