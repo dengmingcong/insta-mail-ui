@@ -3,7 +3,7 @@
 import { IconButton } from "@mui/material";
 import BugReportOutlinedIcon from '@mui/icons-material/BugReportOutlined';
 import { DataGrid, type GridColDef, GridToolbar } from "@mui/x-data-grid";
-import { useMany, useOne } from "@refinedev/core";
+import { useCustomMutation } from "@refinedev/core";
 import {
   DeleteButton,
   EditButton,
@@ -13,45 +13,38 @@ import {
   TagField
 } from "@refinedev/mui";
 import React, { useState, useEffect } from "react";
+import { useGetIdentity } from "@refinedev/core";
 
-import { sendMailHandler } from '../../components/mails/sendMailHandler';
+// Define the user type to include email
+interface IUser {
+  id: number;
+  name: string;
+  avatar: string;
+  email: string;
+}
 
 export default function MailList() {
   const { dataGridProps } = useDataGrid({
     syncWithLocation: true,
   });
 
-  // Call useMany to find all records whose template_id is not null.
-  // const { data: templateData, isLoading: templateIsLoading } = useMany({
-  //   resource: "templates",
-  //   ids:
-  //     dataGridProps?.rows
-  //       ?.map((item) => item?.template_id)
-  //       .filter(Boolean) ?? [],
-  //   queryOptions: {
-  //     enabled: !!dataGridProps?.rows,
-  //   }
-  // });
+  const { mutate } = useCustomMutation();
+  const { data: user } = useGetIdentity<IUser>();
+  const BACKEND_API_ORIGIN = process.env.BACKEND_API_ORIGIN || 'http://localhost:8000';
 
-  const [selectedMail, setSelectedMail] = useState(null);
-
-  const { data: mailData } = useOne({
-    resource: "mails",
-    id: selectedMail,
-    queryOptions: {
-      enabled: !!selectedMail,
-    },
-  });
-
-  useEffect(() => {
-    if (selectedMail) {
-      console.log("Selected mail ID:", selectedMail);
-      console.log("Mail data:", mailData);
-      if (mailData) {
-        sendMailHandler(mailData);
-      }
-    }
-  }, [selectedMail, mailData]);
+  // Function to test the selected mail.
+  // This function will be called when the user clicks the bug icon.
+  // It will send a POST request to the server with the selected mail's ID (key is "id") and the user's email (key is "email").
+  // The server will then send a test email to the user with the selected mail's ID.
+  const handleTestMail = (selectedMail: number) => {
+    mutate({
+      url: `${BACKEND_API_ORIGIN}/mails/${selectedMail}/test`,
+      method: "post",
+      values: {
+        to: user?.email || "",
+      },
+    });
+  }
 
   const columns = React.useMemo<GridColDef[]>(
     () => [
@@ -115,7 +108,7 @@ export default function MailList() {
               <IconButton
                 aria-label="test"
                 color="info"
-                onClick={() => setSelectedMail(row.id) }
+                onClick={() => handleTestMail(row.id) }
               >
                 <BugReportOutlinedIcon />
               </IconButton>

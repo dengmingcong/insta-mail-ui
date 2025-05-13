@@ -94,6 +94,7 @@ const App = (props: React.PropsWithChildren<AppProps>) => {
         return {
           name: user.name,
           avatar: user.image,
+          email: user.email, 
         };
       }
 
