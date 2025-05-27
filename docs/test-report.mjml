@@ -3,6 +3,13 @@
     <mj-attributes>
       <mj-class name="primary-color" color="#65558F"></mj-class>
       <mj-all padding="0" />
+      <mj-class name="heading-container" padding-bottom="8px" />
+      <mj-class name="not-the-first-heading-container" padding-top="24px" />
+      <mj-class
+        name="heading-column"
+        padding-bottom="4px"
+        border-bottom="2px solid #EADDFF"
+      />
       <mj-class
         name="heading-text"
         font-family="'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif"
@@ -10,13 +17,6 @@
         font-size="16px"
         line-height="24px"
         color="#65558F"
-      />
-      <mj-class name="heading-container" padding-bottom="8px" />
-      <mj-class name="not-the-first-heading-container" padding-top="24px" />
-      <mj-class
-        name="heading-column"
-        padding-bottom="4px"
-        border-bottom="2px solid #EADDFF"
       />
       <mj-class
         name="data-table"
