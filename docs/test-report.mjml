@@ -7,8 +7,9 @@
       <mj-class name="not-the-first-heading-container" padding-top="24px" />
       <mj-class
         name="heading-column"
-        padding-bottom="4px"
-        border-bottom="2px solid #EADDFF"
+        padding="4px 8px"
+        background-color="#b4edc4"
+        border-radius="4px"
       />
       <mj-class
         name="heading-text"
