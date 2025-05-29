@@ -1,7 +1,7 @@
 <mjml>
   <mj-head>
     <mj-attributes>
-      <mj-class name="primary-color" color="#65558F"></mj-class>
+      <mj-class name="primary-color" color="#2749a2"></mj-class>
       <mj-all padding="0" />
       <mj-class name="heading-container" padding-bottom="8px" />
       <mj-class name="not-the-first-heading-container" padding-top="24px" />
@@ -16,7 +16,7 @@
         font-weight="500"
         font-size="16px"
         line-height="24px"
-        color="#65558F"
+        color="#2749a2"
       />
       <mj-class
         name="data-table"
