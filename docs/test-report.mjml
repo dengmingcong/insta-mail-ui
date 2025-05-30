@@ -7,7 +7,7 @@
       <mj-class name="not-the-first-heading-container" padding-top="24px" />
       <mj-class
         name="heading-column"
-        padding="4px 8px"
+        padding="6px 8px"
         background-color="#b4edc4"
         border-radius="4px"
       />
@@ -103,7 +103,9 @@
       <!-- 项目统计 -->
       <mj-section mj-class="heading-container">
         <mj-column mj-class="heading-column">
-          <mj-text mj-class="heading-text">项目统计</mj-text>
+          <mj-text mj-class="heading-text">
+            <p style="margin: 0; text-shadow: 0px 0px #2749a2;">项目统计</p>
+          </mj-text>
         </mj-column>
       </mj-section>
       <mj-section>
@@ -155,7 +157,9 @@
       <!-- 需求变更 -->
       <mj-section mj-class="heading-container not-the-first-heading-container">
         <mj-column mj-class="heading-column">
-          <mj-text mj-class="heading-text">需求变更</mj-text>
+          <mj-text mj-class="heading-text">
+            <p style="margin: 0; text-shadow: 0px 0px #2749a2;">需求变更</p>
+          </mj-text>
         </mj-column>
       </mj-section>
       <mj-section>
@@ -183,7 +187,9 @@
       <!-- 风险 -->
       <mj-section mj-class="heading-container not-the-first-heading-container">
         <mj-column mj-class="heading-column">
-          <mj-text mj-class="heading-text">风险</mj-text>
+          <mj-text mj-class="heading-text">
+            <p style="margin: 0; text-shadow: 0px 0px #2749a2;">风险</p>
+          </mj-text>
         </mj-column>
       </mj-section>
       <mj-section>
@@ -194,7 +200,9 @@
       <!-- 建议 -->
       <mj-section mj-class="heading-container not-the-first-heading-container">
         <mj-column mj-class="heading-column">
-          <mj-text mj-class="heading-text">建议</mj-text>
+          <mj-text mj-class="heading-text">
+            <p style="margin: 0; text-shadow: 0px 0px #2749a2;">建议</p>
+          </mj-text>
         </mj-column>
       </mj-section>
       <mj-section>
@@ -205,7 +213,9 @@
       <!-- bug 统计 -->
       <mj-section mj-class="heading-container not-the-first-heading-container">
         <mj-column mj-class="heading-column">
-          <mj-text mj-class="heading-text">Bug 统计</mj-text>
+          <mj-text mj-class="heading-text">
+            <p style="margin: 0; text-shadow: 0px 0px #2749a2;">Bug 统计</p>
+          </mj-text>
         </mj-column>
       </mj-section>
       <mj-section>
