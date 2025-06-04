@@ -24,7 +24,6 @@
         name="data-table"
         table-layout="fixed"
         width="100%"
-        color="#666"
         font-family="'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif"
       />
     </mj-attributes>
@@ -35,13 +34,13 @@
       border-left: 1px solid rgba(0, 0, 0, 0.1); border-right: 1px solid rgba(0,
       0, 0, 0.1); } .data-table table { background:rgb(255, 255, 255); border-radius: 4px;
       text-shadow: 1px 1px 0px #fff; box-shadow: 0 1px 2px #d1d1d1; }
-      .data-table table th { padding: 8px 0; background: #E5E7EB; } .data-table
+      .data-table table th { padding: 8px 0; background: #E5E7EB; color: #4B5563; } .data-table
       table th:first-child { text-align: left; padding-left: 8px; } .data-table
       table tr:first-child th:first-child { border-top-left-radius: 4px; }
       .data-table table tr:first-child th:last-child { border-top-right-radius:
       4px; } .data-table table tr { text-align: left; } .data-table table
       td:first-child { padding-left: 8px; text-align: left; border-left: 0; }
-      .data-table table td { padding: 8px 8px 8px 0; background: #F9FAFB; }
+      .data-table table td { padding: 8px 8px 8px 0; background: #F9FAFB; color: #4B5563; }
       .data-table tr:nth-child(even) td { background: #F3F4F6; } .data-table
       tr:last-child td { border-bottom: 0; } .data-table tr:last-child
       td:first-child { border-bottom-left-radius: 4px; } .data-table
