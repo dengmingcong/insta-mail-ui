@@ -62,7 +62,7 @@
       css-class="header-border"
       padding="80px 0 8px 0"
     >
-      <mj-column>
+      <mj-column width="80%">
         <mj-text
           align="center"
           font-family="'Helvetica Neue', Helvetica, Arial, 'Lantinghei SC', 'PingFang SC', 'Microsoft YaHei', sans-serif"
