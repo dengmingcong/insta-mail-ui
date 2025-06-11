@@ -48,7 +48,7 @@
       .heading-span {
         display: inline-block;
         border-left: 3px solid #b4c8e9;
-        background: #f6f8fa;
+        background: #f6f8f7;
         border-radius: 4px;
         padding-left: 8px;
         padding-right: 8px;
