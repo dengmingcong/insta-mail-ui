@@ -92,12 +92,8 @@
             font-size="14px"
             line-height="16px"
           >
-            <p style="margin: 0 0 8px 0">
-              测试结论: <span style="color: green">通过</span>
-            </p>
-            <p style="margin: 8px 0">项目名称: 个性化广告和个性化内容开关</p>
-            <p style="margin: 8px 0">测试人员: Raigor</p>
-            <p style="margin: 8px 0 0 0">开发人员: Steam</p>
+            <p style="margin: 0 0 8px 0">作者: Raigor Deng</p>
+            <p style="margin: 8px 0">日期: 2025.06.25</p>
           </mj-text>
         </mj-column>
       </mj-section>
