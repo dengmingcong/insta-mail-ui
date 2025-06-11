@@ -45,6 +45,17 @@
       td:first-child { border-bottom-left-radius: 4px; } .data-table
       tr:last-child td:last-child { border-bottom-right-radius: 4px; }
       .data-table table tr:hover td { background: #EDF2F7; }
+      .heading-span {
+        display: inline-block;
+        border-left: 3px solid #b4c8e9;
+        background: #f6f8fa;
+        border-radius: 4px;
+        padding-left: 8px;
+        padding-right: 8px;
+        height: 2em;
+        line-height: 2em;
+        vertical-align: middle;
+      }
     </mj-style>
   </mj-head>
   <mj-body width="720px">
@@ -99,7 +110,7 @@
       <mj-section mj-class="heading-container">
         <mj-column mj-class="heading-column">
           <mj-text mj-class="heading-text">
-            <span style="display: inline-block; border-left: 4px solid #b4c8e9; background: #f6f8fa; border-radius: 4px; padding-left: 8px; padding-right: 8px; height: 2em; line-height: 2em; vertical-align: middle;">测试结论</span>
+            <span class="heading-span">测试结论</span>
           </mj-text>
         </mj-column>
       </mj-section>
@@ -112,7 +123,7 @@
       <mj-section mj-class="heading-container not-the-first-heading-container">
         <mj-column mj-class="heading-column">
           <mj-text mj-class="heading-text">
-            <span style="display: inline-block; border-left: 3px solid #b4c8e9; background: #f6f8fa; border-radius: 4px; padding-left: 8px; padding-right: 8px; height: 2em; line-height: 2em; vertical-align: middle;">项目统计</span>
+            <span class="heading-span">项目统计</span>
           </mj-text>
         </mj-column>
       </mj-section>
@@ -167,7 +178,7 @@
       <mj-section mj-class="heading-container not-the-first-heading-container">
         <mj-column mj-class="heading-column">
           <mj-text mj-class="heading-text">
-            <span style="display: inline-block; border-left: 3px solid #b4c8e9; background: #f6f8fa; border-radius: 4px; padding-left: 8px; padding-right: 8px; height: 2em; line-height: 2em; vertical-align: middle;">需求变更</span>
+            <span class="heading-span">需求变更</span>
           </mj-text>
         </mj-column>
       </mj-section>
@@ -197,7 +208,7 @@
       <mj-section mj-class="heading-container not-the-first-heading-container">
         <mj-column mj-class="heading-column">
           <mj-text mj-class="heading-text">
-            <span style="display: inline-block; border-left: 3px solid #b4c8e9; background: #f6f8fa; border-radius: 4px; padding-left: 8px; padding-right: 8px; height: 2em; line-height: 2em; vertical-align: middle;">风险</span>
+            <span class="heading-span">风险</span>
           </mj-text>
         </mj-column>
       </mj-section>
@@ -210,7 +221,7 @@
       <mj-section mj-class="heading-container not-the-first-heading-container">
         <mj-column mj-class="heading-column">
           <mj-text mj-class="heading-text">
-            <span style="display: inline-block; border-left: 3px solid #b4c8e9; background: #f6f8fa; border-radius: 4px; padding-left: 8px; padding-right: 8px; height: 2em; line-height: 2em; vertical-align: middle;">建议</span>
+            <span class="heading-span">建议</span>
           </mj-text>
         </mj-column>
       </mj-section>
@@ -223,7 +234,7 @@
       <mj-section mj-class="heading-container not-the-first-heading-container">
         <mj-column mj-class="heading-column">
           <mj-text mj-class="heading-text">
-            <span style="display: inline-block; border-left: 3px solid #b4c8e9; background: #f6f8fa; border-radius: 4px; padding-left: 8px; padding-right: 8px; height: 2em; line-height: 2em; vertical-align: middle;">Bug 统计</span>
+            <span class="heading-span">Bug 统计</span>
           </mj-text>
         </mj-column>
       </mj-section>
@@ -277,7 +288,7 @@
       <mj-section mj-class="heading-container not-the-first-heading-container">
         <mj-column mj-class="heading-column">
           <mj-text mj-class="heading-text">
-            <span style="display: inline-block; border-left: 3px solid #b4c8e9; background: #f6f8fa; border-radius: 4px; padding-left: 8px; padding-right: 8px; height: 2em; line-height: 2em; vertical-align: middle;">测试覆盖的接口</span>
+            <span class="heading-span">测试覆盖的接口</span>
           </mj-text>
         </mj-column>
       </mj-section>
