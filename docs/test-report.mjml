@@ -97,8 +97,21 @@
           </mj-text>
         </mj-column>
       </mj-section>
-      <!-- 项目统计 -->
+      <!-- 测试结论 -->
       <mj-section mj-class="heading-container">
+        <mj-column mj-class="heading-column">
+          <mj-text mj-class="heading-text">
+            <p style="margin: 0; text-shadow: 0px 0px #2749a2;">测试结论</p>
+          </mj-text>
+        </mj-column>
+      </mj-section>
+      <mj-section>
+        <mj-column>
+          <mj-text><span style="color: green">通过</span></mj-text>
+        </mj-column>
+      </mj-section>
+      <!-- 项目统计 -->
+      <mj-section mj-class="heading-container not-the-first-heading-container">
         <mj-column mj-class="heading-column">
           <mj-text mj-class="heading-text">
             <p style="margin: 0; text-shadow: 0px 0px #2749a2;">项目统计</p>
