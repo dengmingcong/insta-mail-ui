@@ -172,6 +172,23 @@
           </mj-table>
         </mj-column>
       </mj-section>
+      <!-- 测试方式 -->
+      <mj-section mj-class="heading-container not-the-first-heading-container">
+        <mj-column mj-class="heading-column">
+          <mj-text mj-class="heading-text">
+            <span class="heading-span">测试方式</span>
+          </mj-text>
+        </mj-column>
+      </mj-section>
+      <mj-section>
+        <mj-column>
+          <mj-text mj-class="paragraph">测试工具: Runway, JMeter</mj-text>
+          <mj-text mj-class="paragraph">测试用例: 见附录</mj-text>
+          <mj-text mj-class="paragraph">测试接口: 见附录</mj-text>
+          <mj-text mj-class="paragraph">隐私测试: 不涉及</mj-text>
+          <mj-text mj-class="paragraph">安全测试: 不涉及</mj-text>
+        </mj-column>
+      </mj-section>
       <!-- 需求变更 -->
       <mj-section mj-class="heading-container not-the-first-heading-container">
         <mj-column mj-class="heading-column">
