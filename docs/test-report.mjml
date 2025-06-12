@@ -357,17 +357,18 @@
           </mj-table>
         </mj-column>
       </mj-section>
-      <!-- 测试覆盖的接口 -->
+      <!-- 附录 -->
       <mj-section mj-class="heading-container not-the-first-heading-container">
         <mj-column mj-class="heading-column">
           <mj-text mj-class="heading-text">
-            <span class="heading-span">测试覆盖的接口</span>
+            <span class="heading-span">附录</span>
           </mj-text>
         </mj-column>
       </mj-section>
       <mj-section>
         <mj-column>
           <mj-table mj-class="data-table" css-class="data-table">
+            <caption>测试覆盖接口</caption>
             <thead>
               <tr>
                 <th scope="col" width="5%">ID</th>
