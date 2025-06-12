@@ -8,6 +8,7 @@
       <mj-class
         name="heading-column"
         padding="6px 0px 0px 0px"
+        border-bottom="2px solid #b4c8e9"
       />
       <mj-class
         name="heading-text"
@@ -45,17 +46,6 @@
       td:first-child { border-bottom-left-radius: 4px; } .data-table
       tr:last-child td:last-child { border-bottom-right-radius: 4px; }
       .data-table table tr:hover td { background: #EDF2F7; }
-      .heading-span {
-        display: inline-block;
-        border-left: 3px solid #b4c8e9;
-        background: #f6f8f7;
-        border-radius: 4px;
-        padding-left: 8px;
-        padding-right: 8px;
-        height: 2em;
-        line-height: 2em;
-        vertical-align: middle;
-      }
     </mj-style>
   </mj-head>
   <mj-body width="720px">
