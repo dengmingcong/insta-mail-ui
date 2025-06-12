@@ -128,7 +128,7 @@
       <mj-section>
         <mj-column>
           <mj-table mj-class="data-table" css-class="data-table">
-            <caption>项目统计数据</caption>
+            <caption>项目时间统计</caption>
             <thead>
               <tr>
                 <th scope="col" width="20%">统计项</th>
