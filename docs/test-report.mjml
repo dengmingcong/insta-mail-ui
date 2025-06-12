@@ -25,6 +25,13 @@
         width="100%"
         font-family="'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif"
       />
+      <mj-class
+        name="paragraph"
+        font-family="'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif"
+        font-size="13px"
+        line-height="16px"
+        padding-bottom="8px"
+      />
     </mj-attributes>
     <mj-style>
       .header-border { border-top: 1px solid rgba(0, 0, 0, 0.1); border-left:
@@ -86,14 +93,8 @@
       <!-- General -->
       <mj-section padding="24px 0">
         <mj-column>
-          <mj-text
-            font-family="'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif"
-            font-size="14px"
-            line-height="16px"
-          >
-            <p style="margin: 0 0 8px 0">作者: Raigor Deng</p>
-            <p style="margin: 8px 0">日期: 2025.06.25</p>
-          </mj-text>
+          <mj-text mj-class="paragraph">作者: Raigor Deng</mj-text>
+          <mj-text mj-class="paragraph">日期: 2025.06.25</mj-text>
         </mj-column>
       </mj-section>
       <!-- 测试结论 -->
@@ -109,12 +110,19 @@
           <mj-text><span style="color: green">通过</span></mj-text>
         </mj-column>
       </mj-section>
-      <!-- 项目统计 -->
+      <!-- 项目信息 -->
       <mj-section mj-class="heading-container not-the-first-heading-container">
         <mj-column mj-class="heading-column">
           <mj-text mj-class="heading-text">
-            <span class="heading-span">项目统计</span>
+            <span class="heading-span">项目信息</span>
           </mj-text>
+        </mj-column>
+      </mj-section>
+      <mj-section>
+        <mj-column>
+          <mj-text mj-class="paragraph">项目名称: 个性化广告和个性化内容开关</mj-text>
+          <mj-text mj-class="paragraph">云测试: Raigor Deng</mj-text>
+          <mj-text mj-class="paragraph">云开发: Steam Game</mj-text>
         </mj-column>
       </mj-section>
       <mj-section>
