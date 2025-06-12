@@ -244,17 +244,81 @@
           />
         </mj-column>
       </mj-section>
-      <!-- 需求变更 -->
+      <!-- 问题和测试结果分析 -->
       <mj-section mj-class="heading-container not-the-first-heading-container">
         <mj-column mj-class="heading-column">
           <mj-text mj-class="heading-text">
-            <span class="heading-span">需求变更</span>
+            <span class="heading-span">问题和测试结果分析</span>
           </mj-text>
         </mj-column>
       </mj-section>
       <mj-section>
         <mj-column>
           <mj-table mj-class="data-table" css-class="data-table">
+            <caption>遗留 Bug</caption>
+            <thead>
+              <tr>
+                <th scope="col" width="5%">ID</th>
+                <th scope="col" width="95%">遗留 Bug</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>一些文字说明变更内容</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>另外一些文字说明变更内容</td>
+              </tr>
+            </tbody>
+          </mj-table>
+          <mj-table mj-class="data-table" css-class="data-table">
+            <caption>风险和建议</caption>
+            <thead>
+              <tr>
+                <th scope="col" width="5%">ID</th>
+                <th scope="col" width="50%">风险</th>
+                <th scope="col" width="45%">建议</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>一些文字说明变更内容</td>
+                <td>一些文字说明变更内容</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>另外一些文字说明变更内容</td>
+                <td>另外一些文字说明变更内容</td>
+              </tr>
+            </tbody>
+          </mj-table>
+          <mj-table mj-class="data-table" css-class="data-table">
+            <caption>问题和建议</caption>
+            <thead>
+              <tr>
+                <th scope="col" width="5%">ID</th>
+                <th scope="col" width="50%">问题</th>
+                <th scope="col" width="45%">建议</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>一些文字说明变更内容</td>
+                <td>一些文字说明变更内容</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>另外一些文字说明变更内容</td>
+                <td>另外一些文字说明变更内容</td>
+              </tr>
+            </tbody>
+          </mj-table>
+          <mj-table mj-class="data-table" css-class="data-table">
+            <caption>需求变更</caption>
             <thead>
               <tr>
                 <th scope="col" width="5%">ID</th>
@@ -272,32 +336,25 @@
               </tr>
             </tbody>
           </mj-table>
-        </mj-column>
-      </mj-section>
-      <!-- 风险 -->
-      <mj-section mj-class="heading-container not-the-first-heading-container">
-        <mj-column mj-class="heading-column">
-          <mj-text mj-class="heading-text">
-            <span class="heading-span">风险</span>
-          </mj-text>
-        </mj-column>
-      </mj-section>
-      <mj-section>
-        <mj-column>
-          <mj-text> 一些风险的说明。 </mj-text>
-        </mj-column>
-      </mj-section>
-      <!-- 建议 -->
-      <mj-section mj-class="heading-container not-the-first-heading-container">
-        <mj-column mj-class="heading-column">
-          <mj-text mj-class="heading-text">
-            <span class="heading-span">建议</span>
-          </mj-text>
-        </mj-column>
-      </mj-section>
-      <mj-section>
-        <mj-column>
-          <mj-text> 一些建议的说明。 </mj-text>
+          <mj-table mj-class="data-table" css-class="data-table">
+            <caption>未自动化</caption>
+            <thead>
+              <tr>
+                <th scope="col" width="5%">ID</th>
+                <th scope="col" width="95%">内容</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>一些文字说明变更内容</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>另外一些文字说明变更内容</td>
+              </tr>
+            </tbody>
+          </mj-table>
         </mj-column>
       </mj-section>
       <!-- 测试覆盖的接口 -->
