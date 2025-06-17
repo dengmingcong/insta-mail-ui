@@ -1,6 +1,6 @@
 "use client";
 
-import { Autocomplete, Box, FormControl, FormControlLabel, FormLabel, Radio, RadioGroup, SelectChangeEvent, TextField, Input } from "@mui/material";
+import { Autocomplete, Box, FormControl, FormControlLabel, FormLabel, Radio, RadioGroup, SelectChangeEvent, TextField, Input, FormGroup, Checkbox } from "@mui/material";
 import { Create, useAutocomplete } from "@refinedev/mui";
 import { useForm } from "@refinedev/react-hook-form";
 import { useState } from "react";
@@ -106,6 +106,13 @@ export default function MailCreate() {
           rows={2}
           name="suggestion"
         />
+        <FormControl>
+          <FormLabel id="tools">测试工具</FormLabel>
+          <FormGroup>
+            <FormControlLabel control={<Checkbox defaultChecked {...register("runway")} />} label="Runway" />
+            <FormControlLabel control={<Checkbox {...register("jmeter")} />} label="JMeter" />
+          </FormGroup>
+        </FormControl>
       </Box>
     </Create>
   );
