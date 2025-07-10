@@ -172,11 +172,11 @@
           </mj-table>
         </mj-column>
       </mj-section>
-      <!-- 测试方式 -->
+      <!-- 测试计划 -->
       <mj-section mj-class="heading-container not-the-first-heading-container">
         <mj-column mj-class="heading-column">
           <mj-text mj-class="heading-text">
-            <span class="heading-span">测试方式</span>
+            <span class="heading-span">测试计划</span>
           </mj-text>
         </mj-column>
       </mj-section>
