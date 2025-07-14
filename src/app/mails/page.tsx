@@ -14,6 +14,7 @@ import {
 } from "@refinedev/mui";
 import React, { useState, useEffect } from "react";
 import { useGetIdentity } from "@refinedev/core";
+import { Dialog, DialogTitle, DialogActions, Button } from "@mui/material";
 
 // Define the user type to include email
 interface IUser {
@@ -31,6 +32,35 @@ export default function MailList() {
   const { mutate } = useCustomMutation();
   const { data: user } = useGetIdentity<IUser>();
   const BACKEND_API_ORIGIN = process.env.BACKEND_API_ORIGIN || 'http://localhost:8000';
+
+  // 公司系统登录状态
+  const [companyLoggedIn, setCompanyLoggedIn] = useState(false);
+
+  // 页面初始化时从 sessionStorage 恢复登录状态
+  useEffect(() => {
+    const flag = sessionStorage.getItem('companyLoggedIn');
+    if (flag === 'true') {
+      setCompanyLoggedIn(true);
+    }
+  }, []);
+
+  // 打开公司系统登录弹窗
+  const openLoginPopup = () => {
+    const popup = window.open(
+      `https://pm.vesync.co/`,
+      'company-login',
+      'width=500,height=600'
+    );
+    // 轮询弹窗关闭状态，一旦关闭视为登录完成
+    const timer = setInterval(() => {
+      if (!popup || popup.closed) {
+        clearInterval(timer);
+        // 持久化登录状态并显示列表
+        sessionStorage.setItem('companyLoggedIn', 'true');
+        setCompanyLoggedIn(true);
+      }
+    }, 500);
+  };
 
   // Function to test the selected mail.
   // This function will be called when the user clicks the bug icon.
@@ -124,6 +154,20 @@ export default function MailList() {
     []
   );
 
+  // 未登录：仅显示登录弹窗，登录后未渲染任何其他组件
+  if (!companyLoggedIn) {
+    return (
+      <Dialog open disableEscapeKeyDown>
+        <DialogTitle>请先登录公司系统</DialogTitle>
+        <DialogActions>
+          <Button variant="contained" onClick={openLoginPopup} color="primary">
+            登录公司系统
+          </Button>
+        </DialogActions>
+      </Dialog>
+    );
+  }
+  // 已登录：渲染邮件列表
   return (
     <List>
       <DataGrid
