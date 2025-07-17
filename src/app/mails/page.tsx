@@ -14,6 +14,8 @@ import {
 } from "@refinedev/mui";
 import React, { useState, useEffect } from "react";
 import { useGetIdentity } from "@refinedev/core";
+import { Button, Box } from "@mui/material";
+import { CompanyLoginModal } from "@components/CompanyLoginModal";
 
 // Define the user type to include email
 interface IUser {
@@ -27,10 +29,18 @@ export default function MailList() {
   const { dataGridProps } = useDataGrid({
     syncWithLocation: true,
   });
+  // Company login modal state
+  const [loginOpen, setLoginOpen] = useState(false);
 
   const { mutate } = useCustomMutation();
   const { data: user } = useGetIdentity<IUser>();
   const BACKEND_API_ORIGIN = process.env.BACKEND_API_ORIGIN || 'http://localhost:8000';
+  // Handle company login success
+  const handleCompanyLoginSuccess = (data: any) => {
+    console.log('Company login data:', data);
+    setLoginOpen(false);
+    // TODO: store token or use business data
+  };
 
   // Function to test the selected mail.
   // This function will be called when the user clicks the bug icon.
@@ -126,11 +136,23 @@ export default function MailList() {
 
   return (
     <List>
+      {/* Company login trigger */}
+      <Box mb={2}>
+        <Button variant="contained" color="primary" onClick={() => setLoginOpen(true)}>
+          Company Login
+        </Button>
+      </Box>
       <DataGrid
         {...dataGridProps}
         columns={columns}
         autoHeight
         slots={{ toolbar: GridToolbar }}
+      />
+      {/* Login modal for company site */}
+      <CompanyLoginModal
+        open={loginOpen}
+        onClose={() => setLoginOpen(false)}
+        onSuccess={handleCompanyLoginSuccess}
       />
     </List>
   );
