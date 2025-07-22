@@ -25,7 +25,7 @@ export const PmLoginModal: React.FC<PmLoginModalProps> = ({ open, onClose, onSuc
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const BACKEND_API_ORIGIN = process.env.NEXT_PUBLIC_BACKEND_API_ORIGIN || "http://localhost:8000";
+  const BACKEND_API_ORIGIN = process.env.BACKEND_API_ORIGIN || "http://localhost:8000";
 
   const handleLogin = async () => {
     setLoading(true);
