@@ -10,13 +10,13 @@ import {
   Alert,
 } from "@mui/material";
 
-interface CompanyLoginModalProps {
+interface PmLoginModalProps {
   open: boolean;
   onClose: () => void;
   onSuccess: (data: any) => void;
 }
 
-export const CompanyLoginModal: React.FC<CompanyLoginModalProps> = ({ open, onClose, onSuccess }) => {
+export const PmLoginModal: React.FC<PmLoginModalProps> = ({ open, onClose, onSuccess }) => {
   const [step, setStep] = useState<"login" | "otp">("login");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");

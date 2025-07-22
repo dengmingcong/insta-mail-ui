@@ -15,7 +15,7 @@ import {
 import React, { useState, useEffect } from "react";
 import { useGetIdentity } from "@refinedev/core";
 import { Button, Box } from "@mui/material";
-import { CompanyLoginModal } from "@components/CompanyLoginModal";
+import { PmLoginModal } from "@components/mails/PmLoginModal";
 
 // Define the user type to include email
 interface IUser {
@@ -149,7 +149,7 @@ export default function MailList() {
         slots={{ toolbar: GridToolbar }}
       />
       {/* Login modal for pm site */}
-      <CompanyLoginModal
+      <PmLoginModal
         open={isPmLoginModalOpen}
         onClose={() => setIsPmLoginModalOpen(false)}
         onSuccess={handlePmLoginSuccess}
