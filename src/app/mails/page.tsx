@@ -148,7 +148,7 @@ export default function MailList() {
         autoHeight
         slots={{ toolbar: GridToolbar }}
       />
-      {/* Login modal for company site */}
+      {/* Login modal for pm site */}
       <CompanyLoginModal
         open={isPmLoginModalOpen}
         onClose={() => setIsPmLoginModalOpen(false)}
