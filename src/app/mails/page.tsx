@@ -29,17 +29,17 @@ export default function MailList() {
   const { dataGridProps } = useDataGrid({
     syncWithLocation: true,
   });
-  // Company login modal state
-  const [loginOpen, setLoginOpen] = useState(false);
+  // PM login modal state.
+  const [isPmLoginModalOpen, setIsPmLoginModalOpen] = useState(false);
 
   const { mutate } = useCustomMutation();
   const { data: user } = useGetIdentity<IUser>();
   const BACKEND_API_ORIGIN = process.env.BACKEND_API_ORIGIN || 'http://localhost:8000';
-  // Handle company login success
-  const handleCompanyLoginSuccess = (data: any) => {
-    console.log('Company login data:', data);
-    setLoginOpen(false);
-    // TODO: store token or use business data
+
+  // Handle PM login success.
+  const handlePmLoginSuccess = (data: any) => {
+    console.log('PM login data:', data);
+    setIsPmLoginModalOpen(false);
   };
 
   // Function to test the selected mail.
@@ -136,10 +136,10 @@ export default function MailList() {
 
   return (
     <List>
-      {/* Company login trigger */}
+      {/* VeSync PM login page trigger */}
       <Box mb={2}>
-        <Button variant="contained" color="primary" onClick={() => setLoginOpen(true)}>
-          Company Login
+        <Button variant="contained" color="primary" onClick={() => setIsPmLoginModalOpen(true)}>
+          Signin VeSync PM
         </Button>
       </Box>
       <DataGrid
@@ -150,9 +150,9 @@ export default function MailList() {
       />
       {/* Login modal for company site */}
       <CompanyLoginModal
-        open={loginOpen}
-        onClose={() => setLoginOpen(false)}
-        onSuccess={handleCompanyLoginSuccess}
+        open={isPmLoginModalOpen}
+        onClose={() => setIsPmLoginModalOpen(false)}
+        onSuccess={handlePmLoginSuccess}
       />
     </List>
   );
