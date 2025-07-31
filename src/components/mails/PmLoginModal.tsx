@@ -85,7 +85,7 @@ export const PmLoginModal: React.FC<PmLoginModalProps> = ({ open, onClose, onSuc
 
   return (
     <Dialog open={open} onClose={onClose} fullWidth>
-      <DialogTitle>{step === "login" ? "Company Login" : "Enter OTP"}</DialogTitle>
+      <DialogTitle>{step === "login" ? "Signin VeSync PM" : "Enter OTP"}</DialogTitle>
       <DialogContent>
         {error && <Alert severity="error">{error}</Alert>}
         {step === "login" ? (
