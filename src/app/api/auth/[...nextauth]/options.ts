@@ -121,7 +121,7 @@ const authOptions = {
     // To make `accessToken` and `id` added to the `token` available via the `jwt()` callback, we have to explicitly forward it here to make it available to the client.
     async session({ session, token }) {
       // Send properties to the client, like an access_token and user id from a provider.
-      session.accessToken = token.access_token;
+      session.accessToken = token.accessToken;
       session.user.id = token.id;
 
       return session;
