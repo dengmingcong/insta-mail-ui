@@ -80,32 +80,33 @@ const authOptions = {
               } catch (error) {
                 console.error("Failed to update user in backend:", error);
               }
-            }
-          }
-          // Save token as a user to backend using fetch.
-          try {
-            const response = await fetch(`${BACKEND_API_ORIGIN}/users`, {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify({
-                email: profile.email,
-                access_token: account.access_token,
-                expires_at: account.expires_at,
-                refresh_token: account.refresh_token,
-              }),
-            });
-
-            if (!response.ok) {
-              console.error("Failed to save user to backend. Response status:", response.status);
-              const errorData = await response.json();
-              console.error("Error details:", errorData);
             } else {
-              console.log("User successfully saved to backend.");
+              // Save token as a user to backend using fetch.
+              try {
+                const response = await fetch(`${BACKEND_API_ORIGIN}/users`, {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                  body: JSON.stringify({
+                    email: profile.email,
+                    access_token: account.access_token,
+                    expires_at: account.expires_at,
+                    refresh_token: account.refresh_token,
+                  }),
+                });
+
+                if (!response.ok) {
+                  console.error("Failed to save user to backend. Response status:", response.status);
+                  const errorData = await response.json();
+                  console.error("Error details:", errorData);
+                } else {
+                  console.log("User successfully saved to backend.");
+                }
+              } catch (error) {
+                console.error("Failed to save user to backend:", error);
+              }
             }
-          } catch (error) {
-            console.error("Failed to save user to backend:", error);
           }
         } catch (error) {
           console.error("Failed to fetch user from backend:", error);
