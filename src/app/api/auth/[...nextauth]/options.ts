@@ -57,7 +57,29 @@ const authOptions = {
             const user = await response.json();
             if (user) {
               // Update the token with user details.
+              try {
+                const response = await fetch(`${BACKEND_API_ORIGIN}/users/${user.id}`, {
+                  method: "PATCH",
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                  body: JSON.stringify({
+                    access_token: account.access_token,
+                    expires_at: account.expires_at,
+                    refresh_token: account.refresh_token,
+                  }),
+                });
 
+                if (!response.ok) {
+                  console.error("Failed to update user in backend. Response status:", response.status);
+                  const errorData = await response.json();
+                  console.error("Error details:", errorData);
+                } else {
+                  console.log("User successfully updated in backend.");
+                }
+              } catch (error) {
+                console.error("Failed to update user in backend:", error);
+              }
             }
           }
           // Save token as a user to backend using fetch.
