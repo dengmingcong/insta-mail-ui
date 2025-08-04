@@ -111,9 +111,9 @@ const authOptions = {
         } catch (error) {
           console.error("Failed to fetch user from backend:", error);
         }
-
-        return token;
       }
+
+      return token;
     },
 
     // The `session` callback is called whenever a session is checked. 
