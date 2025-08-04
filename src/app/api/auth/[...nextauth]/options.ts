@@ -59,10 +59,7 @@ const authOptions = {
               // Update the token with user details.
 
             }
-          } catch (error) {
-            console.error("Failed to fetch user from backend:", error);
           }
-
           // Save token as a user to backend using fetch.
           try {
             const response = await fetch(`${BACKEND_API_ORIGIN}/users`, {
@@ -88,22 +85,26 @@ const authOptions = {
           } catch (error) {
             console.error("Failed to save user to backend:", error);
           }
+        } catch (error) {
+          console.error("Failed to fetch user from backend:", error);
         }
 
-      return token;
-      },
+        return token;
+      }
+    },
+
     // The `session` callback is called whenever a session is checked. 
     // By default, only a subset of the token is returned for increased security.
     // To make `accessToken` and `id` added to the `token` available via the `jwt()` callback, we have to explicitly forward it here to make it available to the client.
     async session({ session, token }) {
-        // Send properties to the client, like an access_token and user id from a provider.
-        session.accessToken = token.access_token;
-        session.user.id = token.id;
+      // Send properties to the client, like an access_token and user id from a provider.
+      session.accessToken = token.access_token;
+      session.user.id = token.id;
 
-        return session;
-      }
-    },
-    secret: `UItTuD1HcGXIj8ZfHUswhYdNd40Lc325R8VlxQPUoR0=`,
-  };
+      return session;
+    }
+  },
+  secret: `UItTuD1HcGXIj8ZfHUswhYdNd40Lc325R8VlxQPUoR0=`,
+};
 
-  export default authOptions;
+export default authOptions;
