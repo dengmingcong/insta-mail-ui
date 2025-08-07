@@ -31,17 +31,19 @@ export const PmLoginModal: React.FC<PmLoginModalProps> = ({ open, onClose, onSuc
     setLoading(true);
     setError(null);
     try {
-      const res = await fetch(`${BACKEND_API_ORIGIN}/company/login`, {
+      const res = await fetch(`${BACKEND_API_ORIGIN}/adapters/vesync/projects/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, password }),
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.detail || "Login failed");
-      if (data.status === "need_otp") {
+      if (data?.session_id) {
+        // Need OTP
         setSessionId(data.session_id);
         setStep("otp");
       } else {
+        // Successful login
         onSuccess(data);
       }
     } catch (e: any) {
@@ -56,10 +58,10 @@ export const PmLoginModal: React.FC<PmLoginModalProps> = ({ open, onClose, onSuc
     setLoading(true);
     setError(null);
     try {
-      const res = await fetch(`${BACKEND_API_ORIGIN}/company/otp`, {
+      const res = await fetch(`${BACKEND_API_ORIGIN}/adapters/vesync/projects/otp`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ session_id: sessionId, otp }),
+        body: JSON.stringify({ username, session_id: sessionId, otp }),
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.detail || "OTP submission failed");
