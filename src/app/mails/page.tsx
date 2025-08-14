@@ -1,21 +1,19 @@
 "use client";
 
-import { IconButton } from "@mui/material";
-import BugReportOutlinedIcon from '@mui/icons-material/BugReportOutlined';
+import { PmLoginModal } from "@components/mails/PmLoginModal";
+import BugReportOutlinedIcon from "@mui/icons-material/BugReportOutlined";
+import { Box, Button, IconButton } from "@mui/material";
 import { DataGrid, type GridColDef, GridToolbar } from "@mui/x-data-grid";
-import { useCustomMutation } from "@refinedev/core";
+import { useCustomMutation, useGetIdentity } from "@refinedev/core";
 import {
   DeleteButton,
   EditButton,
   List,
   ShowButton,
+  TagField,
   useDataGrid,
-  TagField
 } from "@refinedev/mui";
-import React, { useState, useEffect } from "react";
-import { useGetIdentity } from "@refinedev/core";
-import { Button, Box } from "@mui/material";
-import { PmLoginModal } from "@components/mails/PmLoginModal";
+import React, { useEffect, useState } from "react";
 
 // Define the user type to include email
 interface IUser {
@@ -34,11 +32,12 @@ export default function MailList() {
 
   const { mutate } = useCustomMutation();
   const { data: user } = useGetIdentity<IUser>();
-  const BACKEND_API_ORIGIN = process.env.BACKEND_API_ORIGIN || 'http://localhost:8000';
+  const BACKEND_API_ORIGIN =
+    process.env.BACKEND_API_ORIGIN || "http://localhost:8000";
 
   // Handle PM login success.
   const handlePmLoginSuccess = (data: any) => {
-    console.log('PM login data:', data);
+    console.log("PM login data:", data);
     setIsPmLoginModalOpen(false);
   };
 
@@ -54,7 +53,7 @@ export default function MailList() {
         to: user?.email || "",
       },
     });
-  }
+  };
 
   const columns = React.useMemo<GridColDef[]>(
     () => [
@@ -118,7 +117,7 @@ export default function MailList() {
               <IconButton
                 aria-label="test"
                 color="info"
-                onClick={() => handleTestMail(row.id) }
+                onClick={() => handleTestMail(row.id)}
               >
                 <BugReportOutlinedIcon />
               </IconButton>
@@ -131,14 +130,18 @@ export default function MailList() {
         minWidth: 80,
       },
     ],
-    []
+    [],
   );
 
   return (
     <List>
       {/* VeSync PM login page trigger */}
       <Box mb={2}>
-        <Button variant="contained" color="primary" onClick={() => setIsPmLoginModalOpen(true)}>
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={() => setIsPmLoginModalOpen(true)}
+        >
           Signin VeSync PM
         </Button>
       </Box>
