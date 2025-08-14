@@ -1,6 +1,19 @@
 "use client";
 
-import { Autocomplete, Box, FormControl, FormControlLabel, FormLabel, Radio, RadioGroup, SelectChangeEvent, TextField, Input, FormGroup, Checkbox } from "@mui/material";
+import {
+  Autocomplete,
+  Box,
+  Checkbox,
+  FormControl,
+  FormControlLabel,
+  FormGroup,
+  FormLabel,
+  Input,
+  Radio,
+  RadioGroup,
+  type SelectChangeEvent,
+  TextField,
+} from "@mui/material";
 import { Create, useAutocomplete } from "@refinedev/mui";
 import { useForm } from "@refinedev/react-hook-form";
 import { useState } from "react";
@@ -14,7 +27,6 @@ export default function MailCreate() {
     setValue,
   } = useForm({});
 
-
   const { autocompleteProps: projectAutocompleteProps } = useAutocomplete({
     resource: "projects",
     debounce: 500,
@@ -27,7 +39,7 @@ export default function MailCreate() {
     ],
   });
 
-  const [conclusion, setConclusion] = useState('passed');
+  const [conclusion, setConclusion] = useState("passed");
 
   const handleChange = (event: SelectChangeEvent) => {
     setConclusion(event.target.value as string);
@@ -41,10 +53,7 @@ export default function MailCreate() {
         sx={{ display: "flex", flexDirection: "column" }}
         autoComplete="off"
       >
-        <input
-          type="hidden"
-          {...register("project_id")}
-        />
+        <input type="hidden" {...register("project_id")} />
         <Autocomplete
           {...projectAutocompleteProps}
           id="project_name"
@@ -61,7 +70,11 @@ export default function MailCreate() {
                 required: "This field is required",
               })}
               error={!!errors?.title}
-              helperText={typeof errors?.title?.message === "string" ? errors.title.message : ""}
+              helperText={
+                typeof errors?.title?.message === "string"
+                  ? errors.title.message
+                  : ""
+              }
               label="项目"
               variant="outlined"
               margin="normal"
@@ -69,10 +82,7 @@ export default function MailCreate() {
             />
           )}
         />
-        <FormControl 
-          fullWidth
-          margin="normal"
-        >
+        <FormControl fullWidth margin="normal">
           <FormLabel id="conclusion">结论</FormLabel>
           <RadioGroup
             row
@@ -81,14 +91,18 @@ export default function MailCreate() {
             name="conclusion"
             onChange={handleChange}
           >
-            <FormControlLabel value="passed" control={<Radio color="success"/> } label="通过" />
-            <FormControlLabel value="failed" control={<Radio color="warning"/>} label="失败" />
+            <FormControlLabel
+              value="passed"
+              control={<Radio color="success" />}
+              label="通过"
+            />
+            <FormControlLabel
+              value="failed"
+              control={<Radio color="warning" />}
+              label="失败"
+            />
           </RadioGroup>
-          <input
-            type="hidden"
-            {...register("conclusion")}
-            value={conclusion}
-          />
+          <input type="hidden" {...register("conclusion")} value={conclusion} />
         </FormControl>
         <TextField
           {...register("risk")}
@@ -109,8 +123,14 @@ export default function MailCreate() {
         <FormControl>
           <FormLabel id="tools">测试工具</FormLabel>
           <FormGroup>
-            <FormControlLabel control={<Checkbox defaultChecked {...register("runway")} />} label="Runway" />
-            <FormControlLabel control={<Checkbox {...register("jmeter")} />} label="JMeter" />
+            <FormControlLabel
+              control={<Checkbox defaultChecked {...register("runway")} />}
+              label="Runway"
+            />
+            <FormControlLabel
+              control={<Checkbox {...register("jmeter")} />}
+              label="JMeter"
+            />
           </FormGroup>
         </FormControl>
       </Box>
