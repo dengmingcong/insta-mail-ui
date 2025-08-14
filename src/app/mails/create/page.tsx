@@ -28,7 +28,7 @@ export default function MailCreate() {
   } = useForm({});
 
   const { autocompleteProps: projectAutocompleteProps } = useAutocomplete({
-    resource: "projects",
+    resource: "adapters/vesync/projects",
     debounce: 500,
     onSearch: (value) => [
       {
