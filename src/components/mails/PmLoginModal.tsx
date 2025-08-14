@@ -1,14 +1,15 @@
-import React, { useState, useEffect } from "react";
 import {
-  Dialog,
-  DialogTitle,
-  DialogContent,
-  DialogActions,
-  TextField,
+  Alert,
   Button,
   CircularProgress,
-  Alert,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogTitle,
+  TextField,
 } from "@mui/material";
+import type React from "react";
+import { useEffect, useState } from "react";
 
 interface PmLoginModalProps {
   open: boolean;
@@ -16,7 +17,11 @@ interface PmLoginModalProps {
   onSuccess: (data: any) => void;
 }
 
-export const PmLoginModal: React.FC<PmLoginModalProps> = ({ open, onClose, onSuccess }) => {
+export const PmLoginModal: React.FC<PmLoginModalProps> = ({
+  open,
+  onClose,
+  onSuccess,
+}) => {
   const [step, setStep] = useState<"login" | "otp">("login");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -25,17 +30,21 @@ export const PmLoginModal: React.FC<PmLoginModalProps> = ({ open, onClose, onSuc
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const BACKEND_API_ORIGIN = process.env.BACKEND_API_ORIGIN || "http://localhost:8000";
+  const BACKEND_API_ORIGIN =
+    process.env.BACKEND_API_ORIGIN || "http://localhost:8000";
 
   const handleLogin = async () => {
     setLoading(true);
     setError(null);
     try {
-      const res = await fetch(`${BACKEND_API_ORIGIN}/adapters/vesync/projects/login`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ username, password }),
-      });
+      const res = await fetch(
+        `${BACKEND_API_ORIGIN}/adapters/vesync/projects/login`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ username, password }),
+        },
+      );
       const data = await res.json();
       if (!res.ok) throw new Error(data.detail || "Login failed");
       if (data?.session_id) {
@@ -58,11 +67,14 @@ export const PmLoginModal: React.FC<PmLoginModalProps> = ({ open, onClose, onSuc
     setLoading(true);
     setError(null);
     try {
-      const res = await fetch(`${BACKEND_API_ORIGIN}/adapters/vesync/projects/otp`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ username, session_id: sessionId, otp }),
-      });
+      const res = await fetch(
+        `${BACKEND_API_ORIGIN}/adapters/vesync/projects/otp`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ username, session_id: sessionId, otp }),
+        },
+      );
       const data = await res.json();
       if (!res.ok) throw new Error(data.detail || "OTP submission failed");
       onSuccess(data);
@@ -87,7 +99,9 @@ export const PmLoginModal: React.FC<PmLoginModalProps> = ({ open, onClose, onSuc
 
   return (
     <Dialog open={open} onClose={onClose} fullWidth>
-      <DialogTitle>{step === "login" ? "Signin VeSync PM" : "Enter OTP"}</DialogTitle>
+      <DialogTitle>
+        {step === "login" ? "Signin VeSync PM" : "Enter OTP"}
+      </DialogTitle>
       <DialogContent>
         {error && <Alert severity="error">{error}</Alert>}
         {step === "login" ? (
@@ -119,7 +133,9 @@ export const PmLoginModal: React.FC<PmLoginModalProps> = ({ open, onClose, onSuc
         )}
       </DialogContent>
       <DialogActions>
-        <Button onClick={onClose} disabled={loading}>Cancel</Button>
+        <Button onClick={onClose} disabled={loading}>
+          Cancel
+        </Button>
         {step === "login" ? (
           <Button onClick={handleLogin} variant="contained" disabled={loading}>
             {loading ? <CircularProgress size={20} /> : "Login"}
