@@ -8,7 +8,6 @@ import {
   FormControlLabel,
   FormGroup,
   FormLabel,
-  Input,
   Radio,
   RadioGroup,
   type SelectChangeEvent,
@@ -17,15 +16,30 @@ import {
 import { Create, useAutocomplete } from "@refinedev/mui";
 import { useForm } from "@refinedev/react-hook-form";
 import { useState } from "react";
+import { Controller } from "react-hook-form";
 
 export default function MailCreate() {
+  interface MailFormValues {
+    project_id?: number;
+    project_name?: string;
+    conclusion: string;
+    risk?: string;
+    suggestion?: string;
+    tools: string[];
+  }
   const {
     saveButtonProps,
     register,
     refineCore: { formLoading },
     formState: { errors },
     setValue,
-  } = useForm({});
+    control,
+  } = useForm<MailFormValues>({
+    defaultValues: {
+      conclusion: "passed",
+      tools: ["runway"] as string[],
+    },
+  });
 
   const { autocompleteProps: projectAutocompleteProps } = useAutocomplete({
     resource: "adapters/vesync/projects",
@@ -62,17 +76,17 @@ export default function MailCreate() {
             value === undefined ||
             option?.id?.toString() === (value?.id ?? value)?.toString()
           }
-          onChange={(event, value) => setValue("project_id", value?.id)} // Update projectId here.
+          onChange={(_event, value) => setValue("project_id", value?.id)} // Update projectId here.
           renderInput={(params) => (
             <TextField
               {...params}
               {...register("project_name", {
                 required: "This field is required",
               })}
-              error={!!errors?.title}
+              error={!!errors?.project_name}
               helperText={
-                typeof errors?.title?.message === "string"
-                  ? errors.title.message
+                typeof errors?.project_name?.message === "string"
+                  ? errors.project_name.message
                   : ""
               }
               label="项目"
@@ -120,19 +134,49 @@ export default function MailCreate() {
           rows={2}
           name="suggestion"
         />
-        <FormControl>
-          <FormLabel id="tools">测试工具</FormLabel>
-          <FormGroup>
-            <FormControlLabel
-              control={<Checkbox defaultChecked {...register("runway")} />}
-              label="Runway"
-            />
-            <FormControlLabel
-              control={<Checkbox {...register("jmeter")} />}
-              label="JMeter"
-            />
-          </FormGroup>
-        </FormControl>
+        <Controller
+          name="tools"
+          control={control}
+          render={({ field }) => (
+            <FormControl>
+              <FormLabel id="tools">测试工具</FormLabel>
+              <FormGroup>
+                <FormControlLabel
+                  control={
+                    <Checkbox
+                      checked={(field.value || []).includes("runway")}
+                      onChange={(e) => {
+                        const checked = e.target.checked;
+                        const current: string[] = field.value || [];
+                        const next = checked
+                          ? Array.from(new Set([...current, "runway"]))
+                          : current.filter((v) => v !== "runway");
+                        field.onChange(next);
+                      }}
+                    />
+                  }
+                  label="Runway"
+                />
+                <FormControlLabel
+                  control={
+                    <Checkbox
+                      checked={(field.value || []).includes("jmeter")}
+                      onChange={(e) => {
+                        const checked = e.target.checked;
+                        const current: string[] = field.value || [];
+                        const next = checked
+                          ? Array.from(new Set([...current, "jmeter"]))
+                          : current.filter((v) => v !== "jmeter");
+                        field.onChange(next);
+                      }}
+                    />
+                  }
+                  label="JMeter"
+                />
+              </FormGroup>
+            </FormControl>
+          )}
+        />
       </Box>
     </Create>
   );
