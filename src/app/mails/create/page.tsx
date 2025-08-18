@@ -27,6 +27,7 @@ export default function MailCreate() {
     suggestion?: string;
     tools: string[];
   }
+
   const {
     saveButtonProps,
     register,
