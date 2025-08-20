@@ -1,18 +1,31 @@
 "use client";
 
+import AddIcon from "@mui/icons-material/Add";
+import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
+import UploadFileIcon from "@mui/icons-material/UploadFile";
 import {
   Autocomplete,
   Box,
+  Button,
   Checkbox,
   FormControl,
   FormControlLabel,
   FormGroup,
   FormLabel,
+  IconButton,
+  Paper,
   Radio,
   RadioGroup,
   type SelectChangeEvent,
+  Stack,
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableRow,
   TextField,
 } from "@mui/material";
+import { useApiUrl } from "@refinedev/core";
 import { Create, useAutocomplete } from "@refinedev/mui";
 import { useForm } from "@refinedev/react-hook-form";
 import { useState } from "react";
@@ -26,6 +39,7 @@ export default function MailCreate() {
     risk?: string;
     suggestion?: string;
     tools: string[];
+    interfaces: { path: string }[];
   }
 
   const {
@@ -39,8 +53,11 @@ export default function MailCreate() {
     defaultValues: {
       conclusion: "passed",
       tools: ["runway"] as string[],
+      interfaces: [],
     },
   });
+
+  const apiUrl = useApiUrl();
 
   const { autocompleteProps: projectAutocompleteProps } = useAutocomplete({
     resource: "adapters/vesync/projects",
@@ -176,6 +193,123 @@ export default function MailCreate() {
                 />
               </FormGroup>
             </FormControl>
+          )}
+        />
+        {/* 报告上传与接口列表（解析由后端完成，此处仅调用并展示） */}
+        <Controller
+          name="interfaces"
+          control={control}
+          render={({ field }) => (
+            <Box component={Paper} variant="outlined" sx={{ p: 2, mt: 1 }}>
+              <Stack
+                direction="row"
+                spacing={1}
+                alignItems="center"
+                sx={{ mb: 1 }}
+              >
+                <Button
+                  variant="contained"
+                  // size="small"
+                  startIcon={<UploadFileIcon />}
+                  component="label"
+                >
+                  Upload Allure
+                  <input
+                    type="file"
+                    hidden
+                    onChange={async (e) => {
+                      const file = e.target.files?.[0];
+                      if (!file) return;
+                      try {
+                        const form = new FormData();
+                        form.append("file", file);
+                        // TODO: 后端实现解析逻辑，此处仅调用接口
+                        const res = await fetch(
+                          `${apiUrl}/adapters/allure/reports`,
+                          {
+                            method: "POST",
+                            body: form,
+                          },
+                        );
+                        if (!res.ok) {
+                          console.error("Upload failed", await res.text());
+                          return;
+                        }
+                        const data = (await res.json()) as { path: string }[];
+                        field.onChange(data || []);
+                      } catch (err) {
+                        console.error(err);
+                      } finally {
+                        // 允许重复选择同一文件
+                        e.currentTarget.value = "";
+                      }
+                    }}
+                  />
+                </Button>
+                <Button
+                  variant="outlined"
+                  startIcon={<AddIcon />}
+                  onClick={() =>
+                    field.onChange([...(field.value || []), { path: "" }])
+                  }
+                >
+                  Api
+                </Button>
+              </Stack>
+
+              <Table size="small">
+                <TableHead>
+                  <TableRow>
+                    <TableCell width="60">ID</TableCell>
+                    <TableCell>Path</TableCell>
+                    <TableCell align="right" width="80">
+                      Actions
+                    </TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  {(field.value || []).map(
+                    (row: { path: string }, idx: number) => (
+                      <TableRow key={`${row?.path ?? ""}-${idx}`}>
+                        <TableCell>{idx + 1}</TableCell>
+                        <TableCell>
+                          <TextField
+                            fullWidth
+                            size="small"
+                            value={row?.path ?? ""}
+                            onChange={(e) => {
+                              const next: { path: string }[] = [
+                                ...(field.value || []),
+                              ];
+                              next[idx] = {
+                                ...(next[idx] || {}),
+                                path: e.target.value,
+                              };
+                              field.onChange(next);
+                            }}
+                            placeholder="/api/foo/bar"
+                          />
+                        </TableCell>
+                        <TableCell align="right">
+                          <IconButton
+                            aria-label="delete"
+                            size="small"
+                            onClick={() => {
+                              const next = (field.value || []).filter(
+                                (_: { path: string }, i: number) => i !== idx,
+                              );
+                              field.onChange(next);
+                            }}
+                          >
+                            <DeleteOutlineIcon fontSize="small" />
+                          </IconButton>
+                        </TableCell>
+                      </TableRow>
+                    ),
+                  )}
+                </TableBody>
+              </Table>
+            </Box>
           )}
         />
       </Box>
