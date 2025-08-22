@@ -228,7 +228,7 @@ export default function MailCreate() {
                       try {
                         const form = new FormData();
                         form.append("file", file);
-                        // TODO: 后端实现解析逻辑，此处仅调用接口
+                        // 后端实现解析逻辑，此处仅调用接口。
                         const res = await fetch(
                           `${apiUrl}/adapters/allure/reports`,
                           {
