@@ -39,7 +39,7 @@ export default function MailCreate() {
     risk?: string;
     suggestion?: string;
     tools: string[];
-    interfaces: { path: string }[];
+    apis: { path: string }[];
   }
 
   const {
@@ -53,7 +53,7 @@ export default function MailCreate() {
     defaultValues: {
       conclusion: "passed",
       tools: ["runway"] as string[],
-      interfaces: [],
+      apis: [],
     },
   });
 
@@ -197,7 +197,7 @@ export default function MailCreate() {
         />
         {/* 报告上传与接口列表（解析由后端完成，此处仅调用并展示） */}
         <Controller
-          name="interfaces"
+          name="apis"
           control={control}
           render={({ field }) => (
             <Box component={Paper} variant="outlined" sx={{ p: 2, mt: 1 }}>
