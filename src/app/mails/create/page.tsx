@@ -274,8 +274,8 @@ export default function MailCreate() {
                 </TableHead>
                 <TableBody>
                   {(field.value || []).map(
-                    (row: { path: string }, idx: number) => (
-                      <TableRow key={`${row?.path ?? ""}-${idx}`}>
+                    (row: { path: string; __id?: string }, idx: number) => (
+                      <TableRow key={row.__id ?? `${idx}`}>
                         <TableCell>{idx + 1}</TableCell>
                         <TableCell>
                           <TextField
@@ -283,11 +283,14 @@ export default function MailCreate() {
                             size="small"
                             value={row?.path ?? ""}
                             onChange={(e) => {
-                              const next: { path: string }[] = [
+                              const next: { path: string; __id?: string }[] = [
                                 ...(field.value || []),
                               ];
+                              const current = next[idx] || {};
+                              const id = current.__id ?? crypto.randomUUID();
                               next[idx] = {
-                                ...(next[idx] || {}),
+                                ...current,
+                                __id: id,
                                 path: e.target.value,
                               };
                               field.onChange(next);
@@ -301,7 +304,10 @@ export default function MailCreate() {
                             size="small"
                             onClick={() => {
                               const next = (field.value || []).filter(
-                                (_: { path: string }, i: number) => i !== idx,
+                                (
+                                  _: { path: string; __id?: string },
+                                  i: number,
+                                ) => i !== idx,
                               );
                               field.onChange(next);
                             }}
