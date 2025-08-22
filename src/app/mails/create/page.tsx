@@ -218,8 +218,13 @@ export default function MailCreate() {
                     type="file"
                     hidden
                     onChange={async (e) => {
-                      const file = e.target.files?.[0];
-                      if (!file) return;
+                      const inputEl =
+                        e.currentTarget as HTMLInputElement | null;
+                      const file = inputEl?.files?.[0];
+                      if (!file) {
+                        if (inputEl) inputEl.value = "";
+                        return;
+                      }
                       try {
                         const form = new FormData();
                         form.append("file", file);
@@ -241,7 +246,7 @@ export default function MailCreate() {
                         console.error(err);
                       } finally {
                         // 允许重复选择同一文件
-                        e.currentTarget.value = "";
+                        if (inputEl) inputEl.value = "";
                       }
                     }}
                   />
