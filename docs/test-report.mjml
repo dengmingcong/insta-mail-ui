@@ -139,31 +139,31 @@
             </thead>
             <tbody>
               <tr>
-                <td>提测时间</td>
+                <td>CI 测试开始日期</td>
                 <td>2024.6.12</td>
                 <td>2024.6.12</td>
                 <td></td>
               </tr>
               <tr>
-                <td>测试完成时间</td>
+                <td>CI 测试完成日期</td>
                 <td>2024.6.12</td>
                 <td>2024.6.12</td>
                 <td></td>
               </tr>
               <tr>
-                <td>测试工时（天）</td>
+                <td>CI 测试工时</td>
                 <td>1</td>
                 <td>2</td>
                 <td>一些说明文字</td>
               </tr>
               <tr>
-                <td>项目工时（天）</td>
+                <td>用例+脚本+CI</td>
                 <td>3.3</td>
                 <td>3.3</td>
                 <td></td>
               </tr>
               <tr>
-                <td>开发预估工时（天）</td>
+                <td>云开发预估工时</td>
                 <td>5</td>
                 <td>5</td>
                 <td></td>
