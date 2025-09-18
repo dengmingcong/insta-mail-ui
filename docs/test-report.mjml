@@ -123,12 +123,13 @@
           <mj-text mj-class="paragraph">项目名称: 个性化广告和个性化内容开关</mj-text>
           <mj-text mj-class="paragraph">云测试: Raigor Deng</mj-text>
           <mj-text mj-class="paragraph">云开发: Steam Game</mj-text>
+          <mj-text mj-class="paragraph">云开发评估工时（设计+开发）: 5d</mj-text>
         </mj-column>
       </mj-section>
       <mj-section>
         <mj-column>
           <mj-table mj-class="data-table" css-class="data-table">
-            <caption>项目时间统计</caption>
+            <caption>云测试工时偏差统计</caption>
             <thead>
               <tr>
                 <th scope="col" width="20%">统计项</th>
@@ -138,6 +139,12 @@
               </tr>
             </thead>
             <tbody>
+              <tr>
+                <td>用例+脚本+CI</td>
+                <td>3.3</td>
+                <td>3.3</td>
+                <td></td>
+              </tr>
               <tr>
                 <td>CI 测试开始日期</td>
                 <td>2024.6.12</td>
@@ -155,18 +162,6 @@
                 <td>1</td>
                 <td>2</td>
                 <td>一些说明文字</td>
-              </tr>
-              <tr>
-                <td>用例+脚本+CI</td>
-                <td>3.3</td>
-                <td>3.3</td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>云开发预估工时</td>
-                <td>5</td>
-                <td>5</td>
-                <td></td>
               </tr>
             </tbody>
           </mj-table>
