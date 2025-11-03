@@ -36,7 +36,7 @@ export default function MailCreate() {
     project_id?: number;
     project_name?: string;
     conclusion: string;
-    wiki?: string;
+    wiki: string;
     risk?: string;
     suggestion?: string;
     tools: string[];
@@ -138,7 +138,7 @@ export default function MailCreate() {
           <input type="hidden" {...register("conclusion")} value={conclusion} />
         </FormControl>
         <TextField
-          {...register("wiki")}
+          {...register("wiki", { required: "This field is required" })}
           label="接口测试概要设计链接"
           margin="normal"
           name="wiki"
