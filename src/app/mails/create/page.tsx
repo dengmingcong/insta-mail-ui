@@ -36,6 +36,7 @@ export default function MailCreate() {
     project_id?: number;
     project_name?: string;
     conclusion: string;
+    wiki?: string;
     risk?: string;
     suggestion?: string;
     tools: string[];
