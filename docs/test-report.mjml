@@ -179,9 +179,9 @@
         <mj-column>
           <mj-text mj-class="paragraph">测试工具: Runway, JMeter</mj-text>
           <mj-text mj-class="paragraph">测试方案: 见 <a href=http://example.com>概要设计</></mj-text>
+          <mj-text mj-class="paragraph">隐私测试: 见 <a href=http://example.com>概要设计</></mj-text>
+          <mj-text mj-class="paragraph">安全测试: 见 <a href=http://example.com>概要设计</></mj-text>
           <mj-text mj-class="paragraph">测试接口: 见附录</mj-text>
-          <mj-text mj-class="paragraph">隐私测试: 不涉及</mj-text>
-          <mj-text mj-class="paragraph">安全测试: 不涉及</mj-text>
         </mj-column>
       </mj-section>
       <!-- 测试结果 -->
