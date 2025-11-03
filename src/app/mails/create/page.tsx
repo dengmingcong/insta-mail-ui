@@ -137,6 +137,12 @@ export default function MailCreate() {
           <input type="hidden" {...register("conclusion")} value={conclusion} />
         </FormControl>
         <TextField
+          {...register("wiki")}
+          label="接口测试概要设计链接"
+          margin="normal"
+          name="wiki"
+        />
+        <TextField
           {...register("risk")}
           label="风险"
           margin="normal"
