@@ -1,29 +1,36 @@
 <mjml>
   <mj-head>
     <mj-attributes>
-      <mj-class name="primary-color" color="#65558F"></mj-class>
+      <mj-class name="primary-color" color="#2749a2"></mj-class>
       <mj-all padding="0" />
-      <mj-class
-        name="heading-text"
-        font-family="'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif"
-        font-weight="500"
-        font-size="16px"
-        line-height="24px"
-        color="#65558F"
-      />
       <mj-class name="heading-container" padding-bottom="8px" />
       <mj-class name="not-the-first-heading-container" padding-top="24px" />
       <mj-class
         name="heading-column"
-        padding-bottom="4px"
-        border-bottom="2px solid #EADDFF"
+        padding="6px 0px 0px 0px"
+        border-bottom="2px solid #b4c8e9"
+      />
+      <mj-class
+        name="heading-text"
+        font-family="'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif"
+        font-weight="600"
+        font-size="15px"
+        line-height="24px"
+        color="#2749a2"
+        letter-spacing="1px"
       />
       <mj-class
         name="data-table"
         table-layout="fixed"
         width="100%"
-        color="#666"
         font-family="'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif"
+      />
+      <mj-class
+        name="paragraph"
+        font-family="'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif"
+        font-size="13px"
+        line-height="16px"
+        padding-bottom="8px"
       />
     </mj-attributes>
     <mj-style>
@@ -31,20 +38,21 @@
       1px solid rgba(0, 0, 0, 0.1); border-right: 1px solid rgba(0, 0, 0, 0.1);
       } .content-border { border-bottom: 1px solid rgba(0, 0, 0, 0.1);
       border-left: 1px solid rgba(0, 0, 0, 0.1); border-right: 1px solid rgba(0,
-      0, 0, 0.1); } .data-table table { background: #eaebec; border-radius: 4px;
+      0, 0, 0.1); } .data-table table { background:rgb(255, 255, 255); border-radius: 4px;
       text-shadow: 1px 1px 0px #fff; box-shadow: 0 1px 2px #d1d1d1; }
-      .data-table table th { padding: 8px 0; background: #ededed; } .data-table
+      .data-table caption { color: #4B5563; padding: 8px; }
+      .data-table table th { padding: 8px 0; background: #E5E7EB; color: #4B5563; } .data-table
       table th:first-child { text-align: left; padding-left: 8px; } .data-table
       table tr:first-child th:first-child { border-top-left-radius: 4px; }
       .data-table table tr:first-child th:last-child { border-top-right-radius:
       4px; } .data-table table tr { text-align: left; } .data-table table
       td:first-child { padding-left: 8px; text-align: left; border-left: 0; }
-      .data-table table td { padding: 8px 8px 8px 0; background: #fafafa; }
-      .data-table tr:nth-child(even) td { background: #f6f6f6; } .data-table
+      .data-table table td { padding: 8px 8px 8px 0; background: #F9FAFB; color: #4B5563; }
+      .data-table tr:nth-child(even) td { background: #F3F4F6; } .data-table
       tr:last-child td { border-bottom: 0; } .data-table tr:last-child
       td:first-child { border-bottom-left-radius: 4px; } .data-table
       tr:last-child td:last-child { border-bottom-right-radius: 4px; }
-      .data-table table tr:hover td { background: #f2f2f2; }
+      .data-table table tr:hover td { background: #EDF2F7; }
     </mj-style>
   </mj-head>
   <mj-body width="720px">
@@ -56,22 +64,22 @@
     </mj-section>
     <!-- Header -->
     <mj-section
-      background-color="#EADDFF"
+      background-color="#ffffff"
       border-radius="8px 8px 0 0"
       css-class="header-border"
-      padding="24px 0"
+      padding="80px 0 8px 0"
     >
-      <mj-column>
+      <mj-column width="80%">
         <mj-text
           align="center"
           font-family="'Helvetica Neue', Helvetica, Arial, 'Lantinghei SC', 'PingFang SC', 'Microsoft YaHei', sans-serif"
-          font-size="30px"
-          font-weight="500"
+          font-size="32px"
+          font-weight="600"
           line-height="38px"
-          letter-spacing="0.4em"
+          letter-spacing="0.1em"
           mj-class="primary-color"
         >
-          接口测试报告
+          个性化广告和个性化内容开关
         </mj-text>
       </mj-column>
     </mj-section>
@@ -79,35 +87,49 @@
     <mj-wrapper
       css-class="content-border"
       border-radius="0 0 8px 8px"
-      background-color="rgba(242, 242, 247, 0.3)"
+      background-color="#ffffff"
       padding="0 30px 30px 30px"
     >
       <!-- General -->
       <mj-section padding="24px 0">
         <mj-column>
-          <mj-text
-            font-family="'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Microsoft YaHei', sans-serif"
-            font-size="14px"
-            line-height="16px"
-          >
-            <p style="margin: 0 0 8px 0">
-              测试结论: <span style="color: green">通过</span>
-            </p>
-            <p style="margin: 8px 0">项目名称: 个性化广告和个性化内容开关</p>
-            <p style="margin: 8px 0">测试人员: Raigor</p>
-            <p style="margin: 8px 0 0 0">开发人员: Steam</p>
+          <mj-text mj-class="paragraph">作者: Raigor Deng</mj-text>
+          <mj-text mj-class="paragraph">日期: 2025.06.25</mj-text>
+        </mj-column>
+      </mj-section>
+      <!-- 测试结论 -->
+      <mj-section mj-class="heading-container">
+        <mj-column mj-class="heading-column">
+          <mj-text mj-class="heading-text">
+            <span class="heading-span">测试结论</span>
           </mj-text>
         </mj-column>
       </mj-section>
-      <!-- 项目统计 -->
-      <mj-section mj-class="heading-container">
+      <mj-section>
+        <mj-column>
+          <mj-text><span style="color: green">通过</span></mj-text>
+        </mj-column>
+      </mj-section>
+      <!-- 项目信息 -->
+      <mj-section mj-class="heading-container not-the-first-heading-container">
         <mj-column mj-class="heading-column">
-          <mj-text mj-class="heading-text">项目统计</mj-text>
+          <mj-text mj-class="heading-text">
+            <span class="heading-span">项目信息</span>
+          </mj-text>
+        </mj-column>
+      </mj-section>
+      <mj-section>
+        <mj-column>
+          <mj-text mj-class="paragraph">项目名称: 个性化广告和个性化内容开关</mj-text>
+          <mj-text mj-class="paragraph">云测试: Raigor Deng</mj-text>
+          <mj-text mj-class="paragraph">云开发: Steam Game</mj-text>
+          <mj-text mj-class="paragraph">云开发评估工时（设计+开发）: 5d</mj-text>
         </mj-column>
       </mj-section>
       <mj-section>
         <mj-column>
           <mj-table mj-class="data-table" css-class="data-table">
+            <caption>云测试工时偏差统计</caption>
             <thead>
               <tr>
                 <th scope="col" width="20%">统计项</th>
@@ -118,98 +140,62 @@
             </thead>
             <tbody>
               <tr>
-                <td>提测时间</td>
+                <td>用例+脚本+CI</td>
+                <td>3.3</td>
+                <td>3.3</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>CI 测试开始日期</td>
                 <td>2024.6.12</td>
                 <td>2024.6.12</td>
                 <td></td>
               </tr>
               <tr>
-                <td>测试完成时间</td>
+                <td>CI 测试完成日期</td>
                 <td>2024.6.12</td>
                 <td>2024.6.12</td>
                 <td></td>
               </tr>
               <tr>
-                <td>测试工时（天）</td>
+                <td>CI 测试工时</td>
                 <td>1</td>
                 <td>2</td>
                 <td>一些说明文字</td>
               </tr>
-              <tr>
-                <td>项目工时（天）</td>
-                <td>3.3</td>
-                <td>3.3</td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>开发预估工时（天）</td>
-                <td>5</td>
-                <td>5</td>
-                <td></td>
-              </tr>
             </tbody>
           </mj-table>
         </mj-column>
       </mj-section>
-      <!-- 需求变更 -->
+      <!-- 测试计划 -->
       <mj-section mj-class="heading-container not-the-first-heading-container">
         <mj-column mj-class="heading-column">
-          <mj-text mj-class="heading-text">需求变更</mj-text>
+          <mj-text mj-class="heading-text">
+            <span class="heading-span">测试计划</span>
+          </mj-text>
+        </mj-column>
+      </mj-section>
+      <mj-section>
+        <mj-column>
+          <mj-text mj-class="paragraph">测试工具: Runway, JMeter</mj-text>
+          <mj-text mj-class="paragraph">测试方案: 见 <a href=http://example.com>概要设计</></mj-text>
+          <mj-text mj-class="paragraph">隐私测试: 见 <a href=http://example.com>概要设计</></mj-text>
+          <mj-text mj-class="paragraph">安全测试: 见 <a href=http://example.com>概要设计</></mj-text>
+          <mj-text mj-class="paragraph">测试接口: 见附录</mj-text>
+        </mj-column>
+      </mj-section>
+      <!-- 测试结果 -->
+      <mj-section mj-class="heading-container not-the-first-heading-container">
+        <mj-column mj-class="heading-column">
+          <mj-text mj-class="heading-text">
+            <span class="heading-span">测试结果</span>
+          </mj-text>
         </mj-column>
       </mj-section>
       <mj-section>
         <mj-column>
           <mj-table mj-class="data-table" css-class="data-table">
-            <thead>
-              <tr>
-                <th scope="col" width="5%">ID</th>
-                <th scope="col" width="95%">变更内容</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1</td>
-                <td>一些文字说明变更内容</td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>另外一些文字说明变更内容</td>
-              </tr>
-            </tbody>
-          </mj-table>
-        </mj-column>
-      </mj-section>
-      <!-- 风险 -->
-      <mj-section mj-class="heading-container not-the-first-heading-container">
-        <mj-column mj-class="heading-column">
-          <mj-text mj-class="heading-text">风险</mj-text>
-        </mj-column>
-      </mj-section>
-      <mj-section>
-        <mj-column>
-          <mj-text> 一些风险的说明。 </mj-text>
-        </mj-column>
-      </mj-section>
-      <!-- 建议 -->
-      <mj-section mj-class="heading-container not-the-first-heading-container">
-        <mj-column mj-class="heading-column">
-          <mj-text mj-class="heading-text">建议</mj-text>
-        </mj-column>
-      </mj-section>
-      <mj-section>
-        <mj-column>
-          <mj-text> 一些建议的说明。 </mj-text>
-        </mj-column>
-      </mj-section>
-      <!-- bug 统计 -->
-      <mj-section mj-class="heading-container not-the-first-heading-container">
-        <mj-column mj-class="heading-column">
-          <mj-text mj-class="heading-text">Bug 统计</mj-text>
-        </mj-column>
-      </mj-section>
-      <mj-section>
-        <mj-column>
-          <mj-table mj-class="data-table" css-class="data-table">
+            <caption>Bug 统计</caption>
             <thead>
               <tr>
                 <th scope="col" width="40%">指标</th>
@@ -253,15 +239,131 @@
           />
         </mj-column>
       </mj-section>
-      <!-- 测试覆盖的接口 -->
+      <!-- 问题和测试结果分析 -->
       <mj-section mj-class="heading-container not-the-first-heading-container">
         <mj-column mj-class="heading-column">
-          <mj-text mj-class="heading-text">测试覆盖的接口</mj-text>
+          <mj-text mj-class="heading-text">
+            <span class="heading-span">问题和测试结果分析</span>
+          </mj-text>
         </mj-column>
       </mj-section>
       <mj-section>
         <mj-column>
           <mj-table mj-class="data-table" css-class="data-table">
+            <caption>遗留 Bug</caption>
+            <thead>
+              <tr>
+                <th scope="col" width="5%">ID</th>
+                <th scope="col" width="95%">遗留 Bug</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>一些文字说明变更内容</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>另外一些文字说明变更内容</td>
+              </tr>
+            </tbody>
+          </mj-table>
+          <mj-table mj-class="data-table" css-class="data-table">
+            <caption>风险和建议</caption>
+            <thead>
+              <tr>
+                <th scope="col" width="5%">ID</th>
+                <th scope="col" width="50%">风险</th>
+                <th scope="col" width="45%">建议</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>一些文字说明变更内容</td>
+                <td>一些文字说明变更内容</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>另外一些文字说明变更内容</td>
+                <td>另外一些文字说明变更内容</td>
+              </tr>
+            </tbody>
+          </mj-table>
+          <mj-table mj-class="data-table" css-class="data-table">
+            <caption>问题和建议</caption>
+            <thead>
+              <tr>
+                <th scope="col" width="5%">ID</th>
+                <th scope="col" width="50%">问题</th>
+                <th scope="col" width="45%">建议</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>一些文字说明变更内容</td>
+                <td>一些文字说明变更内容</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>另外一些文字说明变更内容</td>
+                <td>另外一些文字说明变更内容</td>
+              </tr>
+            </tbody>
+          </mj-table>
+          <mj-table mj-class="data-table" css-class="data-table">
+            <caption>需求变更</caption>
+            <thead>
+              <tr>
+                <th scope="col" width="5%">ID</th>
+                <th scope="col" width="95%">变更内容</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>一些文字说明变更内容</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>另外一些文字说明变更内容</td>
+              </tr>
+            </tbody>
+          </mj-table>
+          <mj-table mj-class="data-table" css-class="data-table">
+            <caption>未自动化</caption>
+            <thead>
+              <tr>
+                <th scope="col" width="5%">ID</th>
+                <th scope="col" width="95%">内容</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>一些文字说明变更内容</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>另外一些文字说明变更内容</td>
+              </tr>
+            </tbody>
+          </mj-table>
+        </mj-column>
+      </mj-section>
+      <!-- 附录 -->
+      <mj-section mj-class="heading-container not-the-first-heading-container">
+        <mj-column mj-class="heading-column">
+          <mj-text mj-class="heading-text">
+            <span class="heading-span">附录</span>
+          </mj-text>
+        </mj-column>
+      </mj-section>
+      <mj-section>
+        <mj-column>
+          <mj-table mj-class="data-table" css-class="data-table">
+            <caption>测试覆盖接口</caption>
             <thead>
               <tr>
                 <th scope="col" width="5%">ID</th>

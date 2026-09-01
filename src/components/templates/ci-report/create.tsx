@@ -1,0 +1,78 @@
+import { 
+  Autocomplete, 
+  Box, 
+  FormControl, 
+  FormControlLabel, 
+  FormLabel, 
+  Radio,
+  RadioGroup, 
+  SelectChangeEvent, 
+  TextField 
+} from "@mui/material";
+import { useAutocomplete } from "@refinedev/mui";
+import { useState } from "react";
+
+
+export default function CIReportCreate({setProject}) {
+  const { autocompleteProps: projectAutocompleteProps } = useAutocomplete({
+    resource: "projects",
+  });
+
+  const [conclude, setConclude] = useState('passed');
+
+  const handleChange = (event: SelectChangeEvent) => {
+    setConclude(event.target.value as string);
+  };
+
+  return (
+    <Box sx={{ display: "flex", flexDirection: "column" }}>
+      <Autocomplete
+        id="project"
+        options={projectAutocompleteProps.options}
+        getOptionLabel={(item) => item?.title}
+        onChange={(_, value) => {setProject(value)}}
+        isOptionEqualToValue={(option, value) =>
+          value === undefined ||
+          option?.id?.toString() === (value?.id ?? value)?.toString()
+        }
+        renderInput={(params) => (
+          <TextField
+            {...params}
+            label="项目"
+            variant="outlined"
+            required
+            margin="normal"
+          />
+        )}
+      />
+      <FormControl 
+        fullWidth
+        margin="normal"
+      >
+        <FormLabel id="conclude">结论</FormLabel>
+        <RadioGroup
+          row
+          aria-labelledby="conclude"
+          value={conclude}
+          name="结论"
+          onChange={handleChange}
+        >
+          <FormControlLabel value="passed" control={<Radio color="success"/> } label="通过" />
+          <FormControlLabel value="failed" control={<Radio color="warning"/>} label="失败" />
+        </RadioGroup>
+      </FormControl>
+      <TextField
+        label="风险"
+        margin="normal"
+        multiline
+        rows={2}
+      />
+      <TextField
+        label="建议"
+        margin="normal"
+        multiline
+        rows={2}
+      />
+    </Box>
+  );
+}

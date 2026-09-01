@@ -55,22 +55,12 @@ export const ColorModeContextProvider: React.FC<
   const customBlue = createTheme({
     ...RefineThemes.Blue,
     components: {
-      MuiFormLabel: {
-        styleOverrides: {
-          asterisk: { color: "red" },
-        },
-      },
     },
   })
 
   const customBlueDark = createTheme({
     ...RefineThemes.BlueDark,
     components: {
-      MuiFormLabel: {
-        styleOverrides: {
-          asterisk: { color: "red" },
-        },
-      },
     },
   })
 
